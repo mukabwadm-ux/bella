@@ -1,6 +1,11 @@
 import { supabaseAdmin } from "@/lib/supabase-server";
 import Link from "next/link";
-import { Plus, Pencil, Clock, Users, Star, ExternalLink } from "lucide-react";
+import { Plus, Pencil, Clock, Users, Star, ExternalLink, CalendarDays } from "lucide-react";
+
+function formatDate(iso: string) {
+  if (!iso) return "—";
+  return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+}
 
 export const dynamic = "force-dynamic";
 
@@ -11,8 +16,8 @@ function formatKES(n: number) {
 export default async function AdminToursPage() {
   const { data: tours } = await supabaseAdmin
     .from("tours")
-    .select("id, slug, title, category, duration, group_size, price_from_kes, featured, best_seller, hero_image")
-    .order("price_from_kes");
+    .select("id, slug, title, category, duration, group_size, price_from_kes, featured, best_seller, hero_image, created_at")
+    .order("created_at", { ascending: false });
 
   const rows = tours ?? [];
 
@@ -104,7 +109,13 @@ export default async function AdminToursPage() {
                     <span className="bg-gray-100 px-2 py-0.5 rounded-full">{tour.category}</span>
                     <span className="flex items-center gap-1"><Clock size={10} /> {tour.duration}d</span>
                     <span className="flex items-center gap-1"><Users size={10} /> {tour.group_size}</span>
-                    <span className="font-semibold text-[#0B3D2E]">{formatKES(tour.price_from_kes)}</span>
+                    <span className="font-semibold text-[#0B3D2E]">
+                      {tour.price_from_kes > 0 ? formatKES(tour.price_from_kes) : "Get Quote"}
+                    </span>
+                    <span className="flex items-center gap-1 text-gray-400">
+                      <CalendarDays size={10} />
+                      {formatDate(tour.created_at)}
+                    </span>
                   </div>
                 </div>
               </div>
