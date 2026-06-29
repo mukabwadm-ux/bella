@@ -52,22 +52,32 @@ export default function MediaLibrary({ pickerMode = false, onSelect }: Props) {
 
   useEffect(() => { fetchFiles(); }, [fetchFiles]);
 
-  async function handleUpload(file: File) {
+  const [uploadProgress, setUploadProgress] = useState({ done: 0, total: 0 });
+
+  async function handleUpload(fileList: FileList | File[]) {
+    const files = Array.from(fileList);
+    if (files.length === 0) return;
     setUploading(true);
     setUploadError("");
-    try {
-      const fd = new FormData();
-      fd.append("file", file);
-      fd.append("folder", file.type === "application/pdf" ? "pdfs" : "media");
-      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Upload failed");
-      await fetchFiles();
-    } catch (e: unknown) {
-      setUploadError(e instanceof Error ? e.message : "Upload failed");
-    } finally {
-      setUploading(false);
+    setUploadProgress({ done: 0, total: files.length });
+    const errors: string[] = [];
+    for (const file of files) {
+      try {
+        const fd = new FormData();
+        fd.append("file", file);
+        fd.append("folder", file.type === "application/pdf" ? "pdfs" : "media");
+        const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+        const data = await res.json();
+        if (!res.ok) errors.push(`${file.name}: ${data.error ?? "Upload failed"}`);
+      } catch {
+        errors.push(`${file.name}: Upload failed`);
+      }
+      setUploadProgress((p) => ({ ...p, done: p.done + 1 }));
     }
+    if (errors.length) setUploadError(errors.join(" · "));
+    await fetchFiles();
+    setUploading(false);
+    setUploadProgress({ done: 0, total: 0 });
   }
 
   async function handleDelete(file: MediaFile) {
@@ -106,14 +116,21 @@ export default function MediaLibrary({ pickerMode = false, onSelect }: Props) {
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
-          const file = e.dataTransfer.files[0];
-          if (file) handleUpload(file);
+          if (e.dataTransfer.files.length) handleUpload(e.dataTransfer.files);
         }}
       >
         {uploading ? (
           <div className="flex flex-col items-center gap-2">
             <Loader2 size={28} className="animate-spin text-[#0B3D2E]" />
-            <p className="text-sm text-[#0B3D2E] font-medium">Uploading…</p>
+            <p className="text-sm text-[#0B3D2E] font-medium">
+              Uploading {uploadProgress.done} of {uploadProgress.total}…
+            </p>
+            <div className="w-48 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-[#0B3D2E] rounded-full transition-all duration-300"
+                style={{ width: uploadProgress.total ? `${(uploadProgress.done / uploadProgress.total) * 100}%` : "0%" }}
+              />
+            </div>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-2 text-gray-400">
@@ -121,17 +138,17 @@ export default function MediaLibrary({ pickerMode = false, onSelect }: Props) {
               <Upload size={22} className="text-gray-400" />
             </div>
             <p className="text-sm font-semibold text-gray-600">Click to upload or drag & drop</p>
-            <p className="text-xs text-gray-400">JPG, PNG, WebP, PDF — max 20 MB</p>
+            <p className="text-xs text-gray-400">JPG, PNG, WebP, PDF — max 20 MB each · multiple files supported</p>
           </div>
         )}
         <input
           ref={inputRef}
           type="file"
           accept="image/*,application/pdf"
+          multiple
           className="hidden"
           onChange={(e) => {
-            const f = e.target.files?.[0];
-            if (f) handleUpload(f);
+            if (e.target.files?.length) handleUpload(e.target.files);
             e.target.value = "";
           }}
         />
