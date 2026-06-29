@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient, supabaseAdmin } from "@/lib/supabase-server";
-import { getUserRole } from "@/lib/roles";
 
 async function verifyAuth() {
   const supabase = createSupabaseServerClient();
