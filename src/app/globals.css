@@ -3,25 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF7F0;
+  --foreground: #1C2B23;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-sand text-body-text antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-safari-green;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* TipTap editor placeholder */
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #9ca3af;
+  pointer-events: none;
+  height: 0;
+}
+
+/* TipTap editor prose styling inside the editor box */
+.tiptap {
+  h1 { @apply text-3xl font-bold text-[#0B3D2E] mt-6 mb-3; }
+  h2 { @apply text-2xl font-bold text-[#0B3D2E] mt-5 mb-2; }
+  h3 { @apply text-xl font-semibold text-[#0B3D2E] mt-4 mb-2; }
+  h4 { @apply text-lg font-semibold text-[#0B3D2E] mt-3 mb-1; }
+  h5, h6 { @apply text-base font-semibold text-[#0B3D2E] mt-3 mb-1; }
+  p { @apply text-gray-700 leading-relaxed mb-3; }
+  ul { @apply list-disc pl-5 mb-3 space-y-1; }
+  ol { @apply list-decimal pl-5 mb-3 space-y-1; }
+  li { @apply text-gray-700; }
+  blockquote { @apply border-l-4 border-[#D98200] pl-4 italic text-gray-600 my-4; }
+  a { @apply text-[#D98200] underline; }
+  strong { @apply font-bold; }
+  em { @apply italic; }
+  hr { @apply border-gray-200 my-6; }
+  img { @apply rounded-xl max-w-full my-4; }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
