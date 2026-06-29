@@ -177,10 +177,9 @@ export default function AboutPage() {
               Hear directly from our CEO on what makes Bella Safaris different and our vision for responsible tourism in East Africa.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "DTGJw3aTyHw",
-              "N792b5u3O04",
               "6EwE2foMx6o",
               "laTWp91LuyY",
             ].map((id) => (
