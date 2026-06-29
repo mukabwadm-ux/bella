@@ -136,7 +136,8 @@ export default async function TourPage({ params }: { params: { slug: string } })
             </span>
             <span className="text-xs text-muted-text ml-1">per person</span>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
+            {/* Full WhatsApp button — desktop */}
             <a
               href="https://wa.me/254700506464"
               target="_blank"
@@ -146,11 +147,22 @@ export default async function TourPage({ params }: { params: { slug: string } })
               <Phone size={14} />
               WhatsApp Us
             </a>
+            {/* Icon-only WhatsApp button — mobile */}
+            <a
+              href="https://wa.me/254700506464"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Us"
+              className="sm:hidden flex items-center justify-center w-9 h-9 border-2 border-safari-green text-safari-green hover:bg-safari-green hover:text-white rounded-full transition-colors flex-shrink-0"
+            >
+              <Phone size={15} />
+            </a>
             <a
               href="#enquire"
-              className="bg-savanna-gold hover:bg-sunlit-gold text-white font-semibold text-sm px-5 py-2 rounded-full transition-colors"
+              className="bg-savanna-gold hover:bg-sunlit-gold text-white font-semibold text-sm px-4 sm:px-5 py-2 rounded-full transition-colors whitespace-nowrap"
             >
-              Request a Callback
+              <span className="hidden sm:inline">Request a Callback</span>
+              <span className="sm:hidden">Enquire</span>
             </a>
           </div>
         </div>

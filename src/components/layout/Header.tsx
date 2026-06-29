@@ -81,27 +81,35 @@ export default function Header() {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-border shadow-lg">
-          <nav className="container-xl py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
+        <>
+          {/* Backdrop */}
+          <div
+            className="lg:hidden fixed inset-0 top-16 bg-forest-ink/40 z-40"
+            onClick={() => setMobileOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="lg:hidden relative z-50 bg-white border-t border-border shadow-lg">
+            <nav className="container-xl py-4 flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-3 text-sm font-semibold text-safari-green hover:text-savanna-gold hover:bg-green-tint rounded-md transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-3 text-sm font-semibold text-safari-green hover:text-savanna-gold hover:bg-green-tint rounded-md transition-colors"
+                href="/plan-your-trip"
+                className="mt-3 bg-savanna-gold hover:bg-sunlit-gold text-white font-semibold text-sm px-5 py-3 rounded-full text-center transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
-                {link.label}
+                Plan Your Trip
               </Link>
-            ))}
-            <Link
-              href="/plan-your-trip"
-              className="mt-3 bg-savanna-gold hover:bg-sunlit-gold text-white font-semibold text-sm px-5 py-3 rounded-full text-center transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Plan Your Trip
-            </Link>
-          </nav>
-        </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );

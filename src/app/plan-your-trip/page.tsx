@@ -159,7 +159,7 @@ export default function PlanYourTripPage() {
           <span className="inline-block text-savanna-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Custom Safari Planning
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4 max-w-2xl">
+          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4 max-w-2xl">
             Your Dream Safari, Expertly Planned
           </h1>
           <p className="text-white/80 text-lg max-w-xl">

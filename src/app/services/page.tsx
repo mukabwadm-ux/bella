@@ -140,7 +140,7 @@ export default function ServicesPage() {
           <span className="inline-block text-savanna-gold text-xs font-semibold uppercase tracking-widest mb-3">
             What We Do
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Our Services
           </h1>
           <p className="text-white/75 text-lg max-w-2xl mx-auto">
@@ -161,13 +161,9 @@ export default function ServicesPage() {
               className={`py-16 md:py-24 ${i % 2 === 0 ? "bg-sand" : "bg-surface"}`}
             >
               <div className="container-xl">
-                <div
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                    isReversed ? "lg:flex lg:flex-row-reverse" : ""
-                  }`}
-                >
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Image */}
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                  <div className={`relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg ${isReversed ? "lg:order-2" : ""}`}>
                     <Image
                       src={service.image}
                       alt={service.title}
@@ -185,7 +181,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Content */}
-                  <div>
+                  <div className={isReversed ? "lg:order-1" : ""}>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-xl bg-green-tint flex items-center justify-center flex-shrink-0">
                         <Icon size={20} className="text-safari-green" />
