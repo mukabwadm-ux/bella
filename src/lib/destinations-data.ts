@@ -32,7 +32,7 @@ export const destinationsData: DestinationFull[] = [
       "Maasai cultural villages and warrior ceremonies",
       "Private conservancies for exclusive, off-road game drives",
     ],
-    tour_slugs: ["7-day-classic-kenya", "honeymoon-mara-zanzibar"],
+    tour_slugs: ["honeymoon-mara-zanzibar", "3-days-sarova-mara"],
   },
   {
     id: "2",
@@ -57,7 +57,7 @@ export const destinationsData: DestinationFull[] = [
       "Over 400 bird species recorded",
       "Authentic Maasai community visits nearby",
     ],
-    tour_slugs: ["7-day-classic-kenya"],
+    tour_slugs: [],
   },
   {
     id: "3",
