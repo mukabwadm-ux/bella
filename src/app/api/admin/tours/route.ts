@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { id, ...tourData } = body;
+  const { id: _id, ...tourData } = body;
 
   const { data, error } = await supabaseAdmin
     .from("tours")

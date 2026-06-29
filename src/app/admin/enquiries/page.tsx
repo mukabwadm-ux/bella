@@ -1,5 +1,5 @@
 import { supabaseAdmin } from "@/lib/supabase-server";
-import { Mail, Phone, Clock, Package, Tag } from "lucide-react";
+import { Mail, Phone, Clock, Package } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 

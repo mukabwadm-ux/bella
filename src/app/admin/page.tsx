@@ -1,6 +1,6 @@
 import { supabaseAdmin } from "@/lib/supabase-server";
 import Link from "next/link";
-import { Package, BookOpen, Inbox, MapPin, ArrowRight, Clock, Mail, Phone } from "lucide-react";
+import { Package, BookOpen, Inbox, ArrowRight, Clock, Mail, Phone } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 

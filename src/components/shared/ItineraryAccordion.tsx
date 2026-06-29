@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, MapPin, Utensils, BedDouble } from "lucide-react";
+import { ChevronDown, Utensils, BedDouble } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ItineraryDay } from "@/types";
 

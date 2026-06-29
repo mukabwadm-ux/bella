@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Compass, Users, Leaf, Award, HeartHandshake, Phone, ArrowRight } from "lucide-react";
+import { Shield, Compass, Users, Leaf, Award, HeartHandshake, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -16,12 +16,6 @@ const values = [
   { icon: Leaf, title: "Responsible Tourism", description: "We work exclusively with eco-certified properties and contribute to local conservation initiatives." },
   { icon: HeartHandshake, title: "Community First", description: "We partner with Maasai communities and local businesses to ensure tourism benefits the people who protect the wildlife." },
   { icon: Award, title: "Proven Excellence", description: "Ranked #26 in the top 100 mid-sized companies in Kenya by KPMG. 4.9 stars across hundreds of Google reviews." },
-];
-
-const team = [
-  { name: "Bella Safaris Team", role: "Safari Specialists", image: "/images/Enashipai-12.jpg" },
-  { name: "Field Operations", role: "Licensed Guides & Drivers", image: "/images/GRVL-9.jpg" },
-  { name: "Reservations Team", role: "Available Mon–Sat, 8am–7pm", image: "/images/Flamingo-1.jpg" },
 ];
 
 const milestones = [
@@ -69,17 +63,17 @@ export default function AboutPage() {
                 Who We Are
               </span>
               <h2 className="text-3xl font-bold text-safari-green mt-2 mb-5">
-                Kenya's Trusted Safari Specialists Since 2015
+                Kenya&apos;s Trusted Safari Specialists Since 2015
               </h2>
               <div className="space-y-4 text-body-text leading-relaxed">
                 <p>
                   Bella Safaris was founded in Nairobi in 2015 with a simple but powerful belief: that every person who travels to East Africa deserves more than a tour — they deserve a transformative experience. One that changes how they see the world and their place in it.
                 </p>
                 <p>
-                  Based at Rosslyn Riviera Mall, Level 1, Nairobi, we are a fully licensed, Kenyan tour operator with deep roots in the communities and landscapes we work in. Our team includes some of Kenya's most experienced safari guides, passionate reservations specialists, and logistics experts who between them have decades of field experience across Kenya and Tanzania.
+                  Based at Rosslyn Riviera Mall, Level 1, Nairobi, we are a fully licensed, Kenyan tour operator with deep roots in the communities and landscapes we work in. Our team includes some of Kenya&apos;s most experienced safari guides, passionate reservations specialists, and logistics experts who between them have decades of field experience across Kenya and Tanzania.
                 </p>
                 <p>
-                  We are incorporated in Kenya under CAP 486 and are members of KATO (Kenya Association of Tour Operators). In 2018, we were recognised by KPMG as one of Kenya's Top 100 mid-sized companies — a reflection of our commitment to quality, reliability, and growth.
+                  We are incorporated in Kenya under CAP 486 and are members of KATO (Kenya Association of Tour Operators). In 2018, we were recognised by KPMG as one of Kenya&apos;s Top 100 mid-sized companies — a reflection of our commitment to quality, reliability, and growth.
                 </p>
               </div>
             </div>

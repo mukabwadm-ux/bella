@@ -22,7 +22,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { id, ...tourData } = body;
+  const { id: _id, ...tourData } = body;
 
   const { error } = await supabaseAdmin.from("tours").update(tourData).eq("id", params.id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
