@@ -37,7 +37,7 @@ export async function getFeaturedTours(): Promise<Tour[]> {
     .from("tours")
     .select("*")
     .eq("featured", true)
-    .order("price_from_kes");
+    .order("created_at", { ascending: false });
   return data ?? [];
 }
 
@@ -45,7 +45,7 @@ export async function getAllTours(): Promise<Tour[]> {
   const { data } = await supabase
     .from("tours")
     .select("*")
-    .order("price_from_kes");
+    .order("created_at", { ascending: false });
   return data ?? [];
 }
 
