@@ -6,7 +6,7 @@ import {
   Clock, Users, TrendingUp, CheckCircle, XCircle,
   ArrowLeft, Phone, Star, MapPin,
 } from "lucide-react";
-import { getTourBySlug } from "@/lib/supabase";
+import { getTourBySlug, getAllTours } from "@/lib/supabase";
 import { formatKES } from "@/lib/utils";
 import ItineraryAccordion from "@/components/shared/ItineraryAccordion";
 import TourGallery from "@/components/shared/TourGallery";
