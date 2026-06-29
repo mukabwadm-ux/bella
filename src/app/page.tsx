@@ -7,6 +7,7 @@ import TravelGuideSection from "@/components/sections/TravelGuideSection";
 import CTABand from "@/components/shared/CTABand";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import BlogSection from "@/components/sections/BlogSection";
+import TripAdvisorSection from "@/components/sections/TripAdvisorSection";
 import {
   getFeaturedDestinations,
   getFeaturedTours,
@@ -34,6 +35,7 @@ export default async function HomePage() {
       <TravelGuideSection />
       <CTABand />
       <TestimonialsSection testimonials={testimonials} />
+      <TripAdvisorSection />
       <BlogSection posts={blogPosts} />
     </>
   );
