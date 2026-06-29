@@ -11,7 +11,14 @@ export default function DeleteDestinationButton({ id, name }: { id: string; name
     setDeleting(true);
     try {
       const res = await fetch(`/api/admin/destinations/${id}`, { method: "DELETE" });
-      if (res.ok) window.location.reload();
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        const d = await res.json();
+        alert(`Delete failed: ${d.error ?? res.status}`);
+      }
+    } catch {
+      alert("Delete failed — network error.");
     } finally {
       setDeleting(false);
     }

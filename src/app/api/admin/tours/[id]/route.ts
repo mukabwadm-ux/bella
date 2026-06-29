@@ -39,9 +39,6 @@ export async function DELETE(_: NextRequest, { params }: { params: { id: string 
   const user = await verifyAuth();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const role = await getUserRole(user.id);
-  if (role !== "admin") return NextResponse.json({ error: "Only admins can delete tour packages." }, { status: 403 });
-
   const { data: tour } = await supabaseAdmin.from("tours").select("slug").eq("id", params.id).single();
   const { error } = await supabaseAdmin.from("tours").delete().eq("id", params.id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });

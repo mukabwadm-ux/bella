@@ -50,8 +50,9 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 }
 
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
-  const user = await getAuthedAdmin();
-  if (!user) return NextResponse.json({ error: "Forbidden — admin only." }, { status: 403 });
+  const supabase = createSupabaseServerClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data: dest } = await supabaseAdmin.from("destinations").select("slug").eq("id", params.id).single();
   const { error } = await supabaseAdmin.from("destinations").delete().eq("id", params.id);
