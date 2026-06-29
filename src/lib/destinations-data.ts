@@ -132,7 +132,7 @@ export const destinationsData: DestinationFull[] = [
       "Multiple trekking routes for different fitness levels",
       "Sunrise from the summit — one of Africa's most magnificent views",
     ],
-    tour_slugs: ["4-day-mount-kenya-trek"],
+    tour_slugs: [],
   },
   {
     id: "7",
@@ -208,6 +208,32 @@ export const destinationsData: DestinationFull[] = [
       "Dramatic landscape of volcanic rocks, doum palms, and semi-arid plains",
     ],
     tour_slugs: ["3-days-sarova-shaba"],
+  },
+  {
+    id: "9",
+    slug: "tsavo",
+    name: "Tsavo",
+    country: "Kenya",
+    region: "Southeast Kenya",
+    short_description: "Kenya's largest wilderness — red-dust elephants, Lugard Falls, Mzima Springs, and the Big Five.",
+    long_description: "",
+    hero_image: "/images/tours/tsavo/tsavo-red-elephants-herd.jpg",
+    featured: true,
+    created_at: "",
+    best_time: "June – October (Dry Season) · January – February",
+    climate: "Hot and dry Jun–Oct · Green season Nov–May · 25–35°C · Altitude varies 300–2,000m",
+    about:
+      "Tsavo National Park is Kenya's largest protected area — a vast, rugged wilderness covering over 22,000 km² of southeast Kenya, stretching from the volcanic Chyulu Hills in the west to the arid Galana River plains in the east. Split into Tsavo West and Tsavo East, it is one of the largest game reserves in the world and home to Kenya's largest elephant population — the famous red elephants, stained brick-red from rolling in the park's distinctive laterite soil. Tsavo West is the more dramatic of the two: a landscape of lava flows, ancient volcanic plugs, and the magical Mzima Springs, where underground water from Kilimanjaro wells up through lava rock to create crystal-clear pools inhabited by hippos and crocodiles. Tsavo East is wilder and more arid — vast open plains cut by the Galana River and spectacular Lugard Falls, where water carves through smooth river stone. Together, they form one of the greatest wildlife sanctuaries on earth: home to the Big Five, over 500 bird species, and the raw, untamed feel of original Africa.",
+    highlights: [
+      "Kenya's largest elephant population — iconic red-dust elephants",
+      "Mzima Springs — underwater hippo and crocodile viewing chamber",
+      "Lugard Falls — spectacular Galana River rock formations",
+      "Ngulia Rhino Sanctuary — black rhino conservation in Tsavo West",
+      "Kilaguni Serena Safari Lodge — Kenya's first ever game lodge",
+      "Chyulu Hills — ancient volcanic landscape and lava caves",
+      "Over 500 bird species recorded across both parks",
+    ],
+    tour_slugs: ["2-nights-tsavo"],
   },
 ];
 
