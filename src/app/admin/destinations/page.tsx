@@ -1,14 +1,20 @@
 import { supabaseAdmin } from "@/lib/supabase-server";
 import Link from "next/link";
-import { MapPin, Plus, Pencil, ExternalLink } from "lucide-react";
+import { MapPin, Plus, Pencil, ExternalLink, CalendarDays } from "lucide-react";
+import DeleteDestinationButton from "./DeleteDestinationButton";
+
+function formatDate(iso: string) {
+  if (!iso) return "—";
+  return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+}
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminDestinationsPage() {
   const { data: destinations } = await supabaseAdmin
     .from("destinations")
-    .select("id, slug, name, country, region, featured, best_time, hero_image")
-    .order("name");
+    .select("id, slug, name, country, region, featured, best_time, hero_image, created_at")
+    .order("created_at", { ascending: false });
 
   const { data: tours } = await supabaseAdmin
     .from("tours")
@@ -107,6 +113,7 @@ export default async function AdminDestinationsPage() {
                           <Pencil size={12} />
                           <span className="hidden sm:inline">Edit</span>
                         </Link>
+                        <DeleteDestinationButton id={dest.id} name={dest.name} />
                       </div>
                     </div>
                     {/* Meta row */}
@@ -116,6 +123,10 @@ export default async function AdminDestinationsPage() {
                       {dest.best_time && <span className="hidden sm:inline">· Best: {dest.best_time}</span>}
                       <span className="bg-gray-100 px-2 py-0.5 rounded-full border border-gray-100">
                         {tourCount} tour{tourCount !== 1 ? "s" : ""}
+                      </span>
+                      <span className="flex items-center gap-1 text-gray-400">
+                        <CalendarDays size={10} />
+                        {formatDate(dest.created_at)}
                       </span>
                     </div>
                   </div>
