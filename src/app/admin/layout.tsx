@@ -4,7 +4,7 @@ import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
 import {
   LayoutDashboard, Package, BookOpen, LogOut, Menu, X, MapPin,
-  ChevronDown, MessageSquare, Users,
+  ChevronDown, MessageSquare, Users, Zap,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import type { UserRole } from "@/lib/roles";
@@ -54,6 +54,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     if (pathname.startsWith("/admin/destinations")) return "Destinations";
     if (pathname.startsWith("/admin/contact")) return "Contact Form";
     if (pathname.startsWith("/admin/users")) return "Users";
+    if (pathname.startsWith("/admin/integrations")) return "Integrations";
     return "Admin";
   }
 
@@ -186,6 +187,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               >
                 <Users size={17} />
                 Users
+              </Link>
+
+              <Link
+                href="/admin/integrations"
+                onClick={() => setSidebarOpen(false)}
+                className={`${linkBase} ${isActive("/admin/integrations") ? activeLink : inactiveLink}`}
+              >
+                <Zap size={17} />
+                Integrations
               </Link>
             </>
           )}
