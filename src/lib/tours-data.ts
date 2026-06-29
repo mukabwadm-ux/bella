@@ -2,105 +2,6 @@ import type { Tour } from "@/types";
 
 export const toursData: Tour[] = [
   {
-    id: "1",
-    slug: "3-day-maasai-mara-safari",
-    title: "3-Day Maasai Mara Safari",
-    summary:
-      "Witness the Big Five on an action-packed three-day escape to Kenya's most iconic game reserve. Perfect for first-timers who want the full Mara experience without a long commitment.",
-    hero_image: "/images/Ashnil-Mara-6.jpg",
-    duration: 3,
-    group_size: "2–12",
-    price_from_kes: 500,
-    difficulty: "easy",
-    category: "Wildlife Safari",
-    destinations: ["maasai-mara"],
-    highlights: [
-      "Full-day game drives across the open Mara plains",
-      "Professional KWS-licensed guide with Big Five expertise",
-      "Chance to witness the Great Wildebeest Migration (Jul–Oct)",
-      "Sundowner drinks on the Mara River",
-      "Comfortable tented camp accommodation",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Nairobi to Maasai Mara",
-        description:
-          "Depart Nairobi early morning for a scenic 5-hour drive through the Great Rift Valley, passing Narok town and the open Mara plains. Arrive at camp in time for lunch, followed by a full afternoon game drive to begin your wildlife encounter. Watch the golden hour settle over the savanna before returning to camp for dinner and a briefing from your guide.",
-        meals: "Lunch, Dinner",
-        accommodation: "Tented Camp, Maasai Mara",
-      },
-      {
-        day: 2,
-        title: "Full Day in the Maasai Mara",
-        description:
-          "An early morning wake-up call at 6:00am for the golden hour game drive when predators are most active. Return to camp for a full breakfast, then head out again for a mid-morning drive. After a leisurely lunch, an optional visit to a Maasai village offers insight into the ancient culture that coexists with the wildlife. Evening game drive at sunset, watching the bush transition into night.",
-        meals: "Breakfast, Lunch, Dinner",
-        accommodation: "Tented Camp, Maasai Mara",
-      },
-      {
-        day: 3,
-        title: "Morning Game Drive & Return to Nairobi",
-        description:
-          "One final early morning game drive before a hot breakfast at camp. Depart the Mara by late morning for the return drive to Nairobi, arriving in the early afternoon. Drop-off at your Nairobi hotel or Wilson Airport for onward flights.",
-        meals: "Breakfast",
-        accommodation: "N/A — Return day",
-      },
-    ],
-    inclusions: [
-      "Return road transfer Nairobi to Maasai Mara",
-      "2 nights tented camp accommodation",
-      "All meals as specified (B = Breakfast, L = Lunch, D = Dinner)",
-      "All game drives in a 4WD safari vehicle",
-      "Professional, licensed English-speaking guide",
-      "Maasai Mara National Reserve entry fees",
-      "Mineral water on all drives",
-      "Flying doctors emergency cover",
-    ],
-    exclusions: [
-      "International or domestic flights",
-      "Kenya visa fees",
-      "Travel insurance (strongly recommended)",
-      "Hot air balloon safari (available at extra cost — approx. USD 450/person)",
-      "Alcoholic beverages",
-      "Personal tips for guide and camp staff",
-      "Any items of personal nature",
-    ],
-    gallery: [
-      "/images/Ashnil-Mara-6.jpg",
-      "/images/Enkorok-3.jpg",
-      "/images/keekorok.jpg",
-      "/images/GRVL-9.jpg",
-      "/images/Flamingo-1.jpg",
-      "/images/LNR-4.jpg",
-    ],
-    faqs: [
-      {
-        question: "Is this safari suitable for children?",
-        answer:
-          "Yes, the 3-Day Mara Safari is family-friendly. Children of all ages are welcome and will love the wildlife encounters. We recommend the trip for children aged 5 and above for the best experience.",
-      },
-      {
-        question: "What is the best time of year to visit?",
-        answer:
-          "The Maasai Mara is excellent year-round. The Great Migration river crossings happen July to October. January to March offers calving season with intense predator activity. June to October is considered peak season.",
-      },
-      {
-        question: "What type of accommodation is provided?",
-        answer:
-          "We use well-appointed tented camps with en-suite bathrooms, hot water, comfortable beds, and electricity. These are safari-standard properties that balance comfort with an authentic bush atmosphere.",
-      },
-      {
-        question: "Can I extend this to a longer safari?",
-        answer:
-          "Absolutely. We can extend this to 4, 5, or 7 days and combine it with Amboseli, Lake Nakuru, or other destinations. Contact us to design your perfect itinerary.",
-      },
-    ],
-    featured: true,
-    best_seller: true,
-    created_at: "",
-  },
-  {
     id: "2",
     slug: "7-day-classic-kenya",
     title: "7-Day Classic Kenya Safari",
@@ -582,6 +483,119 @@ export const toursData: Tour[] = [
         question: "How remote are the camps?",
         answer:
           "Our Serengeti camps are located inside or adjacent to the national park — genuinely remote, with no fences between you and the wildlife. They have full amenities including hot water, electricity, and quality cuisine.",
+      },
+    ],
+    featured: true,
+    best_seller: false,
+    created_at: "",
+  },
+  {
+    id: "8",
+    slug: "3-nights-sarova-whitesands",
+    title: "4 Days at Sarova Whitesands Beach Resort & Spa",
+    summary:
+      "Sun, sea, and Swahili culture on Mombasa's Bamburi Beach. Three nights of full-board luxury at one of Kenya's most beloved coastal resorts — with water sports, spa treatments, and a city tour of historic Mombasa.",
+    hero_image: "/images/tours/mombasa/mombasa-sarova-aerial.jpg",
+    duration: 4,
+    group_size: "2–12",
+    price_from_kes: 0,
+    difficulty: "easy",
+    category: "Beach & Island",
+    destinations: ["mombasa"],
+    highlights: [
+      "3 nights full-board at Sarova Whitesands Beach Resort & Spa, Bamburi Beach",
+      "Five swimming pools including a beachfront infinity pool",
+      "PADI-certified scuba diving, jet skiing, and glass-bottom boat reef tours",
+      "Tulia Spa — Swahili massages, body scrubs, and oceanview treatments",
+      "Mombasa city tour: Fort Jesus, Old Town, and the Elephant Tusks",
+      "Haller Park wildlife — giraffes, crocodiles, and birds",
+      "Ozone Kids Club — daily activities for children",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival and Relaxation at the Beach",
+        description:
+          "Arrive at Moi International Airport or Vipingo Airstrip and transfer to Sarova Whitesands Beach Resort & Spa on Bamburi Beach, just 30 minutes from Mombasa city centre. Check into your luxury ocean-view or garden-view room. Enjoy lunch at one of the resort's dining outlets before spending the afternoon by one of five swimming pools or taking a glass-bottom boat ride along the reef. Join the in-house animation team for evening beach volleyball before a seafood dinner at Coco's Beach Bar — waves, ocean breeze, and the Kenyan coast at its finest.",
+        meals: "Lunch, Dinner",
+        accommodation: "Sarova Whitesands Beach Resort & Spa, Bamburi Beach",
+      },
+      {
+        day: 2,
+        title: "Water Sports and Mombasa City Tour",
+        description:
+          "Start with water aerobics at the pool or an early morning walk on Bamburi Beach, followed by a hearty breakfast. From 10am, dive into Blue Ocean Watersports — jet skiing, PADI-certified scuba diving, kayaking, and glass-bottom boat rides over the coral reef (at additional cost). After lunch at the resort, head out on an afternoon city tour of Mombasa: explore the ancient battlements of Fort Jesus, wander the atmospheric lanes of Old Town, and photograph the iconic Elephant Tusks on Moi Avenue. Return to the resort to unwind at Tulia Spa before an evening of salsa or disco night at Coco's Beach Bar.",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Sarova Whitesands Beach Resort & Spa, Bamburi Beach",
+      },
+      {
+        day: 3,
+        title: "Spa, Wildlife, and Sunset Sundowners",
+        description:
+          "Rise early for yoga or meditation at Tulia Spa & Wellness Centre, or a workout in the Tulia Gym. After a poolside breakfast, spend the morning choosing your spa package — Swahili massage, body scrub, or facial treatments in open-air pavilions with ocean views. After lunch at the pavilion restaurant, head to Haller Park for a guided wildlife walk through this remarkable reclaimed quarry ecosystem — spot giraffes, hippos, crocodiles, and hundreds of bird species. Return to the resort for cocktails at Coco's Beach Bar as the sun melts into the Indian Ocean. Optional private beach dinner available at an additional cost.",
+        meals: "Breakfast, Lunch, Dinner",
+        accommodation: "Sarova Whitesands Beach Resort & Spa, Bamburi Beach",
+      },
+      {
+        day: 4,
+        title: "Farewell Morning and Departure",
+        description:
+          "One final swim in the resort's pools or a morning walk along Bamburi Beach before a farewell breakfast. Check out by 10am and transfer to Moi International Airport or Vipingo Airstrip for your onward journey.",
+        meals: "Breakfast",
+        accommodation: "N/A — Departure day",
+      },
+    ],
+    inclusions: [
+      "3 nights accommodation at Sarova Whitesands Beach Resort & Spa",
+      "Full-board meals — breakfast, lunch, and dinner daily",
+      "Complimentary access to all five swimming pools",
+      "Tulia Gym and resort activities — water aerobics, mini-golf, table tennis, beach volleyball",
+      "Mombasa city tour — Fort Jesus, Old Town, and Elephant Tusks",
+      "Complimentary Wi-Fi throughout the property",
+      "Ozone Kids Club daily activities",
+      "Airport or airstrip transfers (Moi International / Vipingo)",
+    ],
+    exclusions: [
+      "International flights to Mombasa",
+      "Kenya visa fees",
+      "Travel insurance (strongly recommended)",
+      "Water sports — scuba diving, jet skiing, kayaking, glass-bottom boat (optional)",
+      "Spa treatments at Tulia Spa (optional)",
+      "Private beach or bush dinner (optional)",
+      "Haller Park, Mama Ngina Waterfront, and Markita Market excursions (optional)",
+      "Alcoholic beverages beyond those specified",
+      "Tips and gratuities",
+    ],
+    gallery: [
+      "/images/tours/mombasa/mombasa-sarova-aerial.jpg",
+      "/images/tours/mombasa/mombasa-sarova-pool-infinity.jpg",
+      "/images/tours/mombasa/mombasa-sarova-pool-bar.jpg",
+      "/images/tours/mombasa/mombasa-sarova-grounds.jpg",
+      "/images/tours/mombasa/mombasa-tulia-spa.jpg",
+      "/images/tours/mombasa/mombasa-cocos-beach-bar.jpg",
+      "/images/tours/mombasa/mombasa-fort-jesus.jpg",
+      "/images/tours/mombasa/mombasa-old-town.jpg",
+    ],
+    faqs: [
+      {
+        question: "What is the best time to visit Mombasa?",
+        answer:
+          "Mombasa is a year-round destination. The best beach weather is July to October and December to March when skies are clear and the sea is calm. Avoid the long rains (April–June) and short rains (October–November) for water sports and outdoor activities.",
+      },
+      {
+        question: "Are airport transfers included?",
+        answer:
+          "Yes, return transfers between Moi International Airport or Vipingo Airstrip and the resort are included in the package. Flight bookings are not included.",
+      },
+      {
+        question: "Is the resort family-friendly?",
+        answer:
+          "Absolutely. Sarova Whitesands is one of Kenya's most popular family resorts. The Ozone Kids Club runs daily activities for children, and there are five pools of varying depths. The calm lagoon beach is safe for all ages.",
+      },
+      {
+        question: "What water sports are available and are they included?",
+        answer:
+          "The resort's Blue Ocean Watersports centre offers PADI-certified scuba diving, jet skiing, kayaking, and glass-bottom boat rides. These activities are available at an additional cost and should be booked in advance to secure your preferred time slot.",
       },
     ],
     featured: true,
