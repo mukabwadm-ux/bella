@@ -52,12 +52,19 @@ export default async function RootLayout({
   const ga4Id = settings.ga4_measurement_id?.trim();
   const gscCode = settings.gsc_verification_code?.trim();
   const adsId = settings.google_ads_id?.trim();
+  const customHeadCode = settings.custom_head_code?.trim();
+  const customBodyCode = settings.custom_body_code?.trim();
 
   return (
     <html lang="en" className={poppins.variable}>
       <head>
         {gscCode && (
           <meta name="google-site-verification" content={gscCode} />
+        )}
+        {customHeadCode && (
+          <Script id="custom-head" strategy="beforeInteractive">
+            {customHeadCode}
+          </Script>
         )}
       </head>
       <body>
@@ -80,6 +87,13 @@ export default async function RootLayout({
               `}
             </Script>
           </>
+        )}
+
+        {/* Custom body code (chat widgets, heatmaps, etc.) */}
+        {customBodyCode && (
+          <Script id="custom-body" strategy="afterInteractive">
+            {customBodyCode}
+          </Script>
         )}
       </body>
     </html>

@@ -5,20 +5,23 @@ import { CheckCircle, AlertCircle, ExternalLink, Save, Loader2, ChevronDown } fr
 
 type Settings = Record<string, string>;
 
+interface IntegrationField {
+  key: string;
+  label: string;
+  placeholder: string;
+  hint: string;
+  type?: "text" | "password" | "textarea";
+  rows?: number;
+}
+
 interface Integration {
   key: string;
   label: string;
   description: string;
-  docsUrl: string;
+  docsUrl?: string;
   color: string;
   logo: React.ReactNode;
-  fields: {
-    key: string;
-    label: string;
-    placeholder: string;
-    hint: string;
-    type?: "text" | "password";
-  }[];
+  fields: IntegrationField[];
 }
 
 const GA_LOGO = (
@@ -43,6 +46,15 @@ const GADS_LOGO = (
     <circle cx="8" cy="12" r="3.5" stroke="white" strokeWidth="2" />
     <circle cx="16" cy="12" r="3.5" stroke="white" strokeWidth="2" />
     <path d="M11.5 12h1" stroke="white" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+const CUSTOM_CODE_LOGO = (
+  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+    <rect width="24" height="24" rx="4" fill="#1e293b" />
+    <path d="M8 8L4 12l4 4" stroke="#94a3b8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16 8l4 4-4 4" stroke="#94a3b8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M14 6l-4 12" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 );
 
@@ -136,6 +148,31 @@ const INTEGRATIONS: Integration[] = [
         label: "Server Prefix",
         placeholder: "us1",
         hint: "The prefix in your API key after the dash (e.g. us1, us2, us6)",
+      },
+    ],
+  },
+  {
+    key: "custom_code",
+    label: "Custom Code",
+    description: "Inject custom HTML, scripts, or styles into the site's <head> or before </body>. Useful for chat widgets, cookie banners, heatmaps, or any third-party snippet.",
+    color: "bg-slate-50 border-slate-200",
+    logo: CUSTOM_CODE_LOGO,
+    fields: [
+      {
+        key: "custom_head_code",
+        label: "Head Code",
+        placeholder: "<!-- Paste your <script>, <style>, or <meta> snippets here -->",
+        hint: "Injected inside <head> on every page. Use for meta tags, preload hints, or scripts that must load early.",
+        type: "textarea",
+        rows: 6,
+      },
+      {
+        key: "custom_body_code",
+        label: "Body Code (end of page)",
+        placeholder: "<!-- Paste chat widgets, analytics snippets, or other scripts here -->",
+        hint: "Injected just before </body> on every page. Recommended for chat widgets, heatmaps, and deferred scripts.",
+        type: "textarea",
+        rows: 6,
       },
     ],
   },
@@ -266,14 +303,25 @@ export default function IntegrationsManager() {
                       <label className="block text-xs font-semibold text-gray-700 mb-1.5">
                         {field.label}
                       </label>
-                      <input
-                        type={field.type ?? "text"}
-                        value={settings[field.key] ?? ""}
-                        onChange={(e) => updateField(field.key, e.target.value)}
-                        placeholder={field.placeholder}
-                        className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]/20 focus:border-[#0B3D2E] transition-colors bg-white"
-                        autoComplete="off"
-                      />
+                      {field.type === "textarea" ? (
+                        <textarea
+                          value={settings[field.key] ?? ""}
+                          onChange={(e) => updateField(field.key, e.target.value)}
+                          placeholder={field.placeholder}
+                          rows={field.rows ?? 5}
+                          className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]/20 focus:border-[#0B3D2E] transition-colors bg-white resize-y"
+                          spellCheck={false}
+                        />
+                      ) : (
+                        <input
+                          type={field.type ?? "text"}
+                          value={settings[field.key] ?? ""}
+                          onChange={(e) => updateField(field.key, e.target.value)}
+                          placeholder={field.placeholder}
+                          className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]/20 focus:border-[#0B3D2E] transition-colors bg-white"
+                          autoComplete="off"
+                        />
+                      )}
                       <p className="text-xs text-gray-400 mt-1.5 leading-relaxed">{field.hint}</p>
                     </div>
                   ))}
@@ -286,14 +334,18 @@ export default function IntegrationsManager() {
                 )}
 
                 <div className="flex items-center justify-between mt-5 pt-4 border-t border-gray-100">
-                  <a
-                    href={integration.docsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-[#D98200] hover:text-[#c07300] flex items-center gap-1 font-medium transition-colors"
-                  >
-                    Open {integration.label} <ExternalLink size={11} />
-                  </a>
+                  {integration.docsUrl ? (
+                    <a
+                      href={integration.docsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-[#D98200] hover:text-[#c07300] flex items-center gap-1 font-medium transition-colors"
+                    >
+                      Open {integration.label} <ExternalLink size={11} />
+                    </a>
+                  ) : (
+                    <span />
+                  )}
                   <button
                     onClick={() => saveIntegration(integration)}
                     disabled={saving === integration.key}

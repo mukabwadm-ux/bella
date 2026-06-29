@@ -1,6 +1,6 @@
 import { supabaseAdmin } from "@/lib/supabase-server";
 import Link from "next/link";
-import { MapPin, Plus, Pencil } from "lucide-react";
+import { MapPin, Plus, Pencil, ExternalLink } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -25,16 +25,18 @@ export default async function AdminDestinationsPage() {
 
   return (
     <div className="space-y-6 max-w-5xl">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Destinations</h1>
-          <p className="text-gray-500 text-sm mt-1">{rows.length} destinations</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Destinations</h1>
+          <p className="text-gray-500 text-sm mt-0.5">{rows.length} destinations</p>
         </div>
         <Link
           href="/admin/destinations/new"
-          className="flex items-center gap-2 bg-[#D98200] hover:bg-[#c07300] text-white font-semibold text-sm px-4 py-2.5 rounded-xl transition-colors"
+          className="flex items-center gap-2 bg-[#D98200] hover:bg-[#c07300] text-white font-semibold text-sm px-3 sm:px-4 py-2.5 rounded-xl transition-colors flex-shrink-0"
         >
-          <Plus size={16} /> New Destination
+          <Plus size={16} />
+          <span className="hidden sm:inline">New Destination</span>
+          <span className="sm:hidden">New</span>
         </Link>
       </div>
 
@@ -48,59 +50,78 @@ export default async function AdminDestinationsPage() {
       ) : (
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
           <div className="divide-y divide-gray-50">
-            {rows.map((dest) => (
-              <div key={dest.id} className="flex items-center gap-4 px-5 py-4 hover:bg-gray-50 transition-colors">
-                {/* Thumbnail */}
-                <div
-                  className="w-14 h-14 rounded-xl bg-gray-100 flex-shrink-0 bg-cover bg-center"
-                  style={dest.hero_image ? { backgroundImage: `url(${dest.hero_image})` } : {}}
-                >
-                  {!dest.hero_image && (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <MapPin size={20} className="text-gray-300" />
-                    </div>
-                  )}
-                </div>
-
-                {/* Info */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <p className="font-semibold text-sm text-gray-900">{dest.name}</p>
-                    {dest.featured && (
-                      <span className="text-xs bg-yellow-50 text-yellow-700 px-2 py-0.5 rounded-full font-medium flex-shrink-0">
-                        Featured
-                      </span>
+            {rows.map((dest) => {
+              const tourCount = tourCountByDest[dest.slug] ?? 0;
+              return (
+                <div key={dest.id} className="flex items-start gap-3 px-4 py-3.5 hover:bg-gray-50 transition-colors">
+                  {/* Thumbnail */}
+                  <div
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gray-100 flex-shrink-0 bg-cover bg-center"
+                    style={dest.hero_image ? { backgroundImage: `url(${dest.hero_image})` } : {}}
+                  >
+                    {!dest.hero_image && (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <MapPin size={18} className="text-gray-300" />
+                      </div>
                     )}
                   </div>
-                  <div className="flex items-center gap-3 text-xs text-gray-400 flex-wrap">
-                    <span>{dest.country}</span>
-                    {dest.region && <span>· {dest.region}</span>}
-                    {dest.best_time && <span>· Best time: {dest.best_time}</span>}
+
+                  {/* Info + actions */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      {/* Title + badges */}
+                      <div className="min-w-0 flex-1">
+                        <p className="font-semibold text-sm text-gray-900 leading-snug mb-1 pr-1">{dest.name}</p>
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {dest.featured && (
+                            <span className="text-xs bg-yellow-50 text-yellow-700 px-2 py-0.5 rounded-full font-medium">
+                              Featured
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      {/* Actions */}
+                      <div className="flex items-center gap-1.5 flex-shrink-0">
+                        <a
+                          href={`/destinations/${dest.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hidden sm:flex items-center gap-1 text-xs text-gray-500 hover:text-gray-900 border border-gray-200 px-2.5 py-1.5 rounded-lg transition-colors"
+                        >
+                          <ExternalLink size={11} />
+                          View
+                        </a>
+                        <a
+                          href={`/destinations/${dest.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="View destination"
+                          className="sm:hidden flex items-center justify-center w-7 h-7 text-gray-500 hover:text-gray-900 border border-gray-200 rounded-lg transition-colors"
+                        >
+                          <ExternalLink size={13} />
+                        </a>
+                        <Link
+                          href={`/admin/destinations/${dest.id}/edit`}
+                          className="flex items-center gap-1.5 text-xs bg-[#0B3D2E] hover:bg-[#002800] text-white px-2.5 sm:px-3 py-1.5 rounded-lg font-medium transition-colors"
+                        >
+                          <Pencil size={12} />
+                          <span className="hidden sm:inline">Edit</span>
+                        </Link>
+                      </div>
+                    </div>
+                    {/* Meta row */}
+                    <div className="flex flex-wrap items-center gap-2 mt-1.5 text-xs text-gray-500">
+                      <span>{dest.country}</span>
+                      {dest.region && <span className="hidden sm:inline">· {dest.region}</span>}
+                      {dest.best_time && <span className="hidden sm:inline">· Best: {dest.best_time}</span>}
+                      <span className="bg-gray-100 px-2 py-0.5 rounded-full border border-gray-100">
+                        {tourCount} tour{tourCount !== 1 ? "s" : ""}
+                      </span>
+                    </div>
                   </div>
                 </div>
-
-                {/* Tour count + actions */}
-                <div className="flex items-center gap-3 flex-shrink-0">
-                  <span className="text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">
-                    {tourCountByDest[dest.slug] ?? 0} tour{(tourCountByDest[dest.slug] ?? 0) !== 1 ? "s" : ""}
-                  </span>
-                  <a
-                    href={`/destinations/${dest.slug}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-gray-500 hover:text-gray-900 border border-gray-200 px-3 py-1.5 rounded-lg transition-colors"
-                  >
-                    View ↗
-                  </a>
-                  <Link
-                    href={`/admin/destinations/${dest.id}/edit`}
-                    className="flex items-center gap-1.5 text-xs bg-[#0B3D2E] hover:bg-[#002800] text-white px-3 py-1.5 rounded-lg font-medium transition-colors"
-                  >
-                    <Pencil size={12} /> Edit
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
