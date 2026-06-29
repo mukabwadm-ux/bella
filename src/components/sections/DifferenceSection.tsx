@@ -5,7 +5,7 @@ import SectionHeading from "@/components/shared/SectionHeading";
 
 const pillars = [
   { icon: Compass, title: "Expert Guides", description: "Kenya Wildlife Service certified guides with 10+ years in the field." },
-  { icon: Shield, title: "Safe & Reliable", description: "Fully insured, TRA licensed, KATO member, TOSKI member." },
+  { icon: Shield, title: "Safe & Reliable", description: "Fully insured, TRA licensed, KATO member, TOSK member." },
   { icon: Users, title: "Small Groups", description: "Intimate groups of 6–12 for an authentic, personal experience." },
   { icon: Leaf, title: "Eco-Conscious", description: "We work with eco-certified lodges and support local conservation." },
   { icon: HeartHandshake, title: "Tailored Trips", description: "Every itinerary is customised around your dates, budget and style." },
