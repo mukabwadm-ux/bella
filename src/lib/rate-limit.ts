@@ -28,7 +28,7 @@ export function rateLimit(
 // Prune expired entries periodically to avoid memory leaks
 setInterval(() => {
   const now = Date.now();
-  for (const [key, entry] of store.entries()) {
+  store.forEach((entry, key) => {
     if (now > entry.resetAt) store.delete(key);
-  }
+  });
 }, 10 * 60 * 1000); // every 10 minutes
