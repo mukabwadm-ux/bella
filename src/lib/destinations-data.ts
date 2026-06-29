@@ -107,7 +107,7 @@ export const destinationsData: DestinationFull[] = [
       "Adjacent Ngorongoro Crater — a world wonder",
       "Genuine wilderness — vast, remote, and unspoilt",
     ],
-    tour_slugs: ["8-day-serengeti-ngorongoro"],
+    tour_slugs: [],
   },
   {
     id: "5",
@@ -234,6 +234,31 @@ export const destinationsData: DestinationFull[] = [
       "Over 500 bird species recorded across both parks",
     ],
     tour_slugs: ["2-nights-tsavo"],
+  },
+  {
+    id: "10",
+    slug: "meru",
+    name: "Meru",
+    country: "Kenya",
+    region: "Eastern Kenya",
+    short_description: "Kenya's best-kept safari secret — the Born Free park, white rhino sanctuary, and two of East Africa's finest eco-lodges.",
+    long_description: "",
+    hero_image: "/images/tours/meru/meru-elephants-inselberg.jpg",
+    featured: true,
+    created_at: "",
+    best_time: "June – September (Dry Season) · November – May (Lush & Birding)",
+    climate: "Warm and humid · 22–32°C · Long rains Mar–May · Short rains Oct–Nov · Dry Jun–Sep",
+    about:
+      "Meru National Park is one of Kenya's most beautiful and least-visited wilderness areas — a 870 km² sanctuary in Eastern Kenya where six permanent rivers cross the park, feeding lush riverine forests, open grasslands, swamps, and doum palm groves. Meru is famous as the setting of Joy Adamson's Born Free — it was here that she and her husband George raised Elsa the lioness and returned her to the wild, a story that changed the course of conservation history. Today, the park holds the Big Five including a dedicated rhino sanctuary managed with Lewa Conservancy, plus cheetah, giraffe, hippo, and over 300 bird species. The two lodges that serve the park — Elsa's Kopje and Rhino River Camp — are consistently ranked among the finest in East Africa. Meru offers what the famous parks once did: genuine wildness, no crowds, and an unmediated encounter with the African bush.",
+    highlights: [
+      "Born Free country — the park that inspired Joy Adamson's landmark conservation story",
+      "Elsa's Kopje — one of Kenya's most celebrated luxury eco-lodges",
+      "White rhino sanctuary managed with Lewa Wildlife Conservancy",
+      "Six permanent rivers — extraordinary diversity of ecosystems",
+      "Big Five plus cheetah, giraffe, hippo, and over 300 bird species",
+      "No crowds — one of Kenya's least-visited but most rewarding parks",
+    ],
+    tour_slugs: ["2-nights-meru"],
   },
 ];
 
