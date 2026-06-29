@@ -2,7 +2,13 @@
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "bomdzcpoyeebfxtqwnuh.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
   },
 
   async headers() {
