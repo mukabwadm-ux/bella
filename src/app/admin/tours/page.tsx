@@ -2,6 +2,7 @@ import { supabaseAdmin } from "@/lib/supabase-server";
 import Link from "next/link";
 import { Plus, Pencil, Clock, Users, Star, ExternalLink, CalendarDays } from "lucide-react";
 import SyncButton from "./SyncButton";
+import DeleteTourButton from "./DeleteTourButton";
 
 function formatDate(iso: string) {
   if (!iso) return "—";
@@ -106,6 +107,7 @@ export default async function AdminToursPage() {
                         <Pencil size={12} />
                         <span className="hidden sm:inline">Edit</span>
                       </Link>
+                      <DeleteTourButton id={tour.id} title={tour.title} />
                     </div>
                   </div>
                   {/* Meta row */}
