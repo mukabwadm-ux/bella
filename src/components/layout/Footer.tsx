@@ -130,20 +130,20 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+254700506464"
+                  href="tel:+254719888008"
                   className="flex gap-3 text-sm text-white/70 hover:text-savanna-gold transition-colors"
                 >
                   <Phone size={16} className="text-savanna-gold flex-shrink-0" />
-                  +254 700 506 464
+                  +254 719 888 008 / +254 739 888 008
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:reservations@bellasafaris.com"
+                  href="mailto:info@bellasafaris.com"
                   className="flex gap-3 text-sm text-white/70 hover:text-savanna-gold transition-colors"
                 >
                   <Mail size={16} className="text-savanna-gold flex-shrink-0" />
-                  reservations@bellasafaris.com
+                  info@bellasafaris.com
                 </a>
               </li>
             </ul>

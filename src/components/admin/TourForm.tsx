@@ -295,7 +295,7 @@ export default function TourForm({
             <input className={INPUT} value={form.group_size} onChange={(e) => setField("group_size", e.target.value)} placeholder="2–12" />
           </div>
           <div>
-            <label className={LABEL}>Price From (KES) *</label>
+            <label className={LABEL}>Price From (USD) *</label>
             <input type="number" className={INPUT} min={0} value={form.price_from_kes} onChange={(e) => setField("price_from_kes", Number(e.target.value))} />
           </div>
         </div>

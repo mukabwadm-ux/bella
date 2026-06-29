@@ -139,7 +139,7 @@ export default async function TourPage({ params }: { params: { slug: string } })
           <div className="flex gap-2 sm:gap-3">
             {/* Full WhatsApp button — desktop */}
             <a
-              href="https://wa.me/254700506464"
+              href="https://wa.me/254719888008"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 border-2 border-safari-green text-safari-green hover:bg-safari-green hover:text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors"
@@ -149,7 +149,7 @@ export default async function TourPage({ params }: { params: { slug: string } })
             </a>
             {/* Icon-only WhatsApp button — mobile */}
             <a
-              href="https://wa.me/254700506464"
+              href="https://wa.me/254719888008"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp Us"
@@ -300,7 +300,7 @@ export default async function TourPage({ params }: { params: { slug: string } })
                     Talk to a safari specialist — we&apos;ll answer every question.
                   </p>
                   <a
-                    href="https://wa.me/254700506464"
+                    href="https://wa.me/254719888008"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold text-sm py-2.5 rounded-full transition-colors mb-3"
@@ -308,10 +308,10 @@ export default async function TourPage({ params }: { params: { slug: string } })
                     Chat on WhatsApp
                   </a>
                   <a
-                    href="tel:+254700506464"
+                    href="tel:+254719888008"
                     className="block border border-white/30 hover:bg-white/10 text-white font-medium text-sm py-2.5 rounded-full transition-colors"
                   >
-                    +254 700 506 464
+                    +254 719 888 008
                   </a>
                 </div>
               </div>

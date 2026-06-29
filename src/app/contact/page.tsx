@@ -5,7 +5,7 @@ import ContactForm from "@/components/shared/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Bella Safaris. Visit us at Rosslyn Riviera Mall, Nairobi, call +254 700 506 464, or send an email.",
+    "Get in touch with Bella Safaris. Visit us at Rosslyn Riviera Mall, Nairobi, call +254 719 888 008, or send an email.",
 };
 
 const officeInfo = [
@@ -17,14 +17,14 @@ const officeInfo = [
   {
     icon: Phone,
     title: "Phone & WhatsApp",
-    lines: ["+254 700 506 464"],
-    link: { href: "tel:+254700506464", label: "+254 700 506 464" },
+    lines: ["+254 719 888 008", "+254 739 888 008"],
+    link: { href: "tel:+254719888008", label: "+254 719 888 008 / +254 739 888 008" },
   },
   {
     icon: Mail,
     title: "Email",
     lines: [],
-    link: { href: "mailto:reservations@bellasafaris.com", label: "reservations@bellasafaris.com" },
+    link: { href: "mailto:info@bellasafaris.com", label: "info@bellasafaris.com" },
   },
   {
     icon: Clock,
@@ -93,7 +93,7 @@ export default function ContactPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/254700506464?text=Hello%20Bella%20Safaris!%20I%20have%20a%20question%20about%20your%20safari%20packages."
+                href="https://wa.me/254719888008?text=Hello%20Bella%20Safaris!%20I%20have%20a%20question%20about%20your%20safari%20packages."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3.5 rounded-full transition-colors shadow-sm"

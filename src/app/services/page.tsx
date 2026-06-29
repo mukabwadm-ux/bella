@@ -304,7 +304,7 @@ export default function ServicesPage() {
               Plan Your Safari <ArrowRight size={16} />
             </Link>
             <a
-              href="https://wa.me/254700506464"
+              href="https://wa.me/254719888008"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-8 py-3.5 rounded-full transition-colors"

@@ -5,7 +5,7 @@ import { Plus, Pencil, Clock, Users, Star, ExternalLink } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 function formatKES(n: number) {
-  return "KES " + n.toLocaleString("en-KE");
+  return "$" + n.toLocaleString("en-US");
 }
 
 export default async function AdminToursPage() {

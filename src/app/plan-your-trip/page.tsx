@@ -32,10 +32,10 @@ const durations = [
 ];
 
 const budgetRanges = [
-  "Budget (under KES 80,000/person)",
-  "Mid-range (KES 80,000–150,000/person)",
-  "Comfort (KES 150,000–250,000/person)",
-  "Luxury (KES 250,000+/person)",
+  "Budget (under $600/person)",
+  "Mid-range ($600–$1,200/person)",
+  "Comfort ($1,200–$2,000/person)",
+  "Luxury ($2,000+/person)",
   "Flexible — show me the best options",
 ];
 
@@ -218,7 +218,7 @@ export default function PlanYourTripPage() {
                       personalised itinerary tailored to your dream trip.
                     </p>
                     <a
-                      href="https://wa.me/254700506464"
+                      href="https://wa.me/254719888008"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full transition-colors"
@@ -475,7 +475,7 @@ export default function PlanYourTripPage() {
                   Our team is available every day. Reach us directly on WhatsApp or by phone.
                 </p>
                 <a
-                  href="https://wa.me/254700506464"
+                  href="https://wa.me/254719888008"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold text-sm py-3 px-5 rounded-full transition-colors mb-3"
@@ -484,18 +484,18 @@ export default function PlanYourTripPage() {
                   Chat on WhatsApp
                 </a>
                 <a
-                  href="tel:+254700506464"
+                  href="tel:+254719888008"
                   className="flex items-center gap-3 border border-white/30 hover:bg-white/10 text-white font-medium text-sm py-3 px-5 rounded-full transition-colors mb-3"
                 >
                   <Phone size={16} />
-                  +254 700 506 464
+                  +254 719 888 008 / +254 739 888 008
                 </a>
                 <a
-                  href="mailto:reservations@bellasafaris.com"
+                  href="mailto:info@bellasafaris.com"
                   className="flex items-center gap-3 border border-white/30 hover:bg-white/10 text-white font-medium text-sm py-3 px-5 rounded-full transition-colors"
                 >
                   <Mail size={16} />
-                  reservations@bellasafaris.com
+                  info@bellasafaris.com
                 </a>
               </div>
 

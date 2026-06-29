@@ -91,7 +91,7 @@ async function sendEmailNotification(data: {
   // Notify the reservations team
   await resend.emails.send({
     from: "Bella Safaris Website <noreply@bellasafaris.com>",
-    to: ["reservations@bellasafaris.com"],
+    to: ["info@bellasafaris.com"],
     subject: subjectLine,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -127,7 +127,7 @@ async function sendEmailNotification(data: {
 
   // Auto-reply to the client
   await resend.emails.send({
-    from: "Bella Safaris <reservations@bellasafaris.com>",
+    from: "Bella Safaris <info@bellasafaris.com>",
     to: [data.email],
     subject: "We've received your safari enquiry — Bella Safaris",
     html: `
@@ -152,7 +152,7 @@ async function sendEmailNotification(data: {
             In the meantime, feel free to WhatsApp us directly for a faster response:
           </p>
           <div style="text-align: center; margin: 25px 0;">
-            <a href="https://wa.me/254700506464"
+            <a href="https://wa.me/254719888008"
                style="background: #25D366; color: #fff; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block;">
               Chat on WhatsApp
             </a>
@@ -160,8 +160,8 @@ async function sendEmailNotification(data: {
           <p style="color: #5B6B62; font-size: 14px; line-height: 1.6;">
             <strong>Bella Safaris</strong><br>
             Rosslyn Riviera Mall, Level 1, Nairobi<br>
-            📞 +254 700 506 464<br>
-            ✉️ reservations@bellasafaris.com
+            📞 +254 719 888 008 / +254 739 888 008<br>
+            ✉️ info@bellasafaris.com
           </p>
         </div>
 

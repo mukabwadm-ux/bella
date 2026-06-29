@@ -198,7 +198,7 @@ export default async function DestinationPage({ params }: { params: { slug: stri
                   Plan Your Safari
                 </Link>
                 <a
-                  href="https://wa.me/254700506464"
+                  href="https://wa.me/254719888008"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block border border-white/30 hover:bg-white/10 text-white font-medium text-sm py-2.5 px-5 rounded-full text-center transition-colors"

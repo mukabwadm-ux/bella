@@ -58,7 +58,7 @@ export default function EnquiryForm({ tourTitle, tourSlug }: EnquiryFormProps) {
           trip. You can also reach us directly on WhatsApp.
         </p>
         <a
-          href="https://wa.me/254700506464"
+          href="https://wa.me/254719888008"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-colors"
@@ -223,7 +223,7 @@ export default function EnquiryForm({ tourTitle, tourSlug }: EnquiryFormProps) {
       <p className="text-center text-xs text-muted-text">
         We respond within 24 hours. You can also reach us directly on{" "}
         <a
-          href="https://wa.me/254700506464"
+          href="https://wa.me/254719888008"
           target="_blank"
           rel="noopener noreferrer"
           className="text-safari-green font-medium hover:underline"

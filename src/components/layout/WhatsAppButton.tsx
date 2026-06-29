@@ -1,5 +1,5 @@
 export default function WhatsAppButton() {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "254700506464";
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "254719888008";
   const message = encodeURIComponent(
     "Hello Bella Safaris! I'm interested in planning a safari. Can you help me?"
   );
