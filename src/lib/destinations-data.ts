@@ -82,7 +82,7 @@ export const destinationsData: DestinationFull[] = [
       "Snorkelling at Mnemba Atoll — one of Africa's finest dive sites",
       "Dolphin watching at Kizimkazi",
     ],
-    tour_slugs: ["5-day-zanzibar-beach", "honeymoon-mara-zanzibar"],
+    tour_slugs: ["honeymoon-mara-zanzibar"],
   },
   {
     id: "4",
@@ -142,10 +142,10 @@ export const destinationsData: DestinationFull[] = [
     region: "Kenyan South Coast",
     short_description: "Kenya's finest beach — pristine coral reef, turquoise water, and swaying palms.",
     long_description: "",
-    hero_image: "/images/Southern-palm-8-1.jpg",
-    featured: false,
+    hero_image: "/images/tours/diani/diani-aerial.jpg",
+    featured: true,
     created_at: "",
-    best_time: "October – March (Best Beach Season)",
+    best_time: "June – October (Dry Season) · December – February",
     climate: "Tropical · 26–32°C year-round · Long rains Apr–Jun · Short rains Oct–Nov",
     about:
       "Diani Beach, stretching 17 km along Kenya's south coast, is consistently voted one of Africa's best beaches and one of the top beaches in the world. The beach is backed by dense forest — home to Colobus monkeys — and fronted by a protected coral reef that creates a calm, sheltered lagoon perfect for swimming and snorkelling. Diani is a world-class kite surfing destination (the consistent Indian Ocean trade winds are legendary), and the reef beyond the lagoon offers exceptional scuba diving with manta rays, whale sharks, and abundant coral fish. The south coast has a deeply laid-back, tropical atmosphere quite different from Mombasa's busier north coast — perfect for travellers wanting a quiet, high-quality beach experience after a Kenya safari.",
@@ -155,9 +155,9 @@ export const destinationsData: DestinationFull[] = [
       "World-class kite surfing with consistent trade winds",
       "Scuba diving — manta rays, whale sharks, vibrant reef",
       "Colobus monkey forest directly behind the beach",
-      "Shimba Hills Reserve — elephant and roan antelope nearby",
+      "UNESCO Kaya Kinondo Sacred Forest — cultural heritage site",
     ],
-    tour_slugs: [],
+    tour_slugs: ["4-night-diani-beach"],
   },
 ];
 
