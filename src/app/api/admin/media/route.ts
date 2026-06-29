@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseServerClient, supabaseAdmin } from "@/lib/supabase-server";
+import { getUserRole } from "@/lib/roles";
 
 const BUCKET = "bella-images";
 const SUBFOLDERS = ["tours", "blog", "destinations", "uploads", "pdfs", "media"];
@@ -78,6 +79,8 @@ export async function DELETE(req: NextRequest) {
   const supabase = createSupabaseServerClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const role = await getUserRole(user.id);
+  if (role !== "admin") return NextResponse.json({ error: "Forbidden — admin only." }, { status: 403 });
 
   const { path } = await req.json();
   if (!path) return NextResponse.json({ error: "Path required" }, { status: 400 });

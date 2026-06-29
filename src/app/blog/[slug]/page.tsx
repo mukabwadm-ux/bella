@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Calendar, User, Tag, ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import sanitizeHtml from "sanitize-html";
 
 interface ArticleContent {
   slug: string;
@@ -579,7 +580,21 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <p className="text-lg md:text-xl text-muted-text leading-relaxed mb-8 font-medium border-l-4 border-savanna-gold pl-5">{cmsPost.excerpt}</p>
               <div
                 className="prose prose-lg max-w-none prose-headings:text-safari-green prose-a:text-savanna-gold prose-strong:text-safari-green"
-                dangerouslySetInnerHTML={{ __html: cmsPost.content }}
+                dangerouslySetInnerHTML={{
+                  __html: sanitizeHtml(cmsPost.content, {
+                    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+                      "img", "h1", "h2", "h3", "h4", "h5", "h6", "figure", "figcaption",
+                    ]),
+                    allowedAttributes: {
+                      ...sanitizeHtml.defaults.allowedAttributes,
+                      img: ["src", "alt", "width", "height", "class"],
+                      a: ["href", "target", "rel", "class"],
+                      "*": ["class"],
+                    },
+                    allowedSchemes: ["http", "https", "mailto"],
+                    disallowedTagsMode: "discard",
+                  }),
+                }}
               />
               <div className="mt-12 bg-safari-green rounded-2xl p-8 text-center">
                 <h3 className="text-xl font-bold text-white mb-2">Ready to Start Planning?</h3>
