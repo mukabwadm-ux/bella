@@ -163,6 +163,43 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Media / CEO Interviews */}
+      <section className="section-pad bg-sand">
+        <div className="container-xl">
+          <div className="text-center mb-10">
+            <span className="text-xs font-semibold uppercase tracking-widest text-savanna-gold">
+              In the Media
+            </span>
+            <h2 className="text-3xl font-bold text-safari-green mt-2">
+              Bella Safaris Featured Interviews
+            </h2>
+            <p className="text-muted-text text-base mt-3 max-w-xl mx-auto">
+              Hear directly from our CEO on what makes Bella Safaris different and our vision for responsible tourism in East Africa.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              "DTGJw3aTyHw",
+              "N792b5u3O04",
+              "6EwE2foMx6o",
+              "laTWp91LuyY",
+            ].map((id) => (
+              <div key={id} className="rounded-2xl overflow-hidden shadow-md bg-forest-ink">
+                <div className="relative w-full aspect-video">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${id}`}
+                    title="Bella Safaris CEO Interview"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-safari-green py-16 md:py-20">
         <div className="container-xl text-center">
