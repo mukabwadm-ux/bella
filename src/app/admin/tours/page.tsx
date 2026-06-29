@@ -1,6 +1,7 @@
 import { supabaseAdmin } from "@/lib/supabase-server";
 import Link from "next/link";
 import { Plus, Pencil, Clock, Users, Star, ExternalLink, CalendarDays } from "lucide-react";
+import SyncButton from "./SyncButton";
 
 function formatDate(iso: string) {
   if (!iso) return "—";
@@ -23,19 +24,22 @@ export default async function AdminToursPage() {
 
   return (
     <div className="space-y-6 max-w-6xl">
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Tour Packages</h1>
           <p className="text-gray-500 text-sm mt-0.5">{rows.length} packages</p>
         </div>
-        <Link
-          href="/admin/tours/new"
-          className="flex items-center gap-2 bg-[#0B3D2E] hover:bg-[#002800] text-white font-semibold text-sm px-3 sm:px-4 py-2.5 rounded-xl transition-colors flex-shrink-0"
-        >
-          <Plus size={16} />
-          <span className="hidden sm:inline">New Package</span>
-          <span className="sm:hidden">New</span>
-        </Link>
+        <div className="flex items-center gap-2 flex-wrap">
+          <SyncButton />
+          <Link
+            href="/admin/tours/new"
+            className="flex items-center gap-2 bg-[#0B3D2E] hover:bg-[#002800] text-white font-semibold text-sm px-3 sm:px-4 py-2.5 rounded-xl transition-colors flex-shrink-0"
+          >
+            <Plus size={16} />
+            <span className="hidden sm:inline">New Package</span>
+            <span className="sm:hidden">New</span>
+          </Link>
+        </div>
       </div>
 
       {rows.length === 0 ? (
