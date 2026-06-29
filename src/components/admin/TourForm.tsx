@@ -188,8 +188,7 @@ export default function TourForm({
         throw new Error(d.error ?? "Save failed");
       }
 
-      router.push("/admin/tours");
-      router.refresh();
+      window.location.href = "/admin/tours";
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Save failed");
     } finally {

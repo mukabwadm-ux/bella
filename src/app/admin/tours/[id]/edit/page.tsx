@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import TourForm from "@/components/admin/TourForm";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Edit Tour Package" };
 
 export default async function EditTourPage({ params }: { params: { id: string } }) {
