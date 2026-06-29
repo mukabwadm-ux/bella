@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient, supabaseAdmin } from "@/lib/supabase-server";
 import { getUserRole } from "@/lib/roles";
 
@@ -40,6 +41,11 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     .single();
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  revalidatePath("/");
+  revalidatePath("/destinations");
+  if (data?.slug) revalidatePath(`/destinations/${data.slug}`);
+
   return NextResponse.json(data);
 }
 
@@ -47,11 +53,14 @@ export async function DELETE(_req: NextRequest, { params }: { params: { id: stri
   const user = await getAuthedAdmin();
   if (!user) return NextResponse.json({ error: "Forbidden — admin only." }, { status: 403 });
 
-  const { error } = await supabaseAdmin
-    .from("destinations")
-    .delete()
-    .eq("id", params.id);
+  const { data: dest } = await supabaseAdmin.from("destinations").select("slug").eq("id", params.id).single();
+  const { error } = await supabaseAdmin.from("destinations").delete().eq("id", params.id);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  revalidatePath("/");
+  revalidatePath("/destinations");
+  if (dest?.slug) revalidatePath(`/destinations/${dest.slug}`);
+
   return NextResponse.json({ success: true });
 }

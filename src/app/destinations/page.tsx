@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MapPin, ArrowRight } from "lucide-react";
 import { getAllDestinations, getAllTours } from "@/lib/supabase";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Destinations",

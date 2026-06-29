@@ -6,7 +6,7 @@ import { MapPin, Sun, Calendar, ArrowLeft, ArrowRight, CheckCircle } from "lucid
 import { getAllDestinations, getDestinationBySlug, getToursByDestination } from "@/lib/supabase";
 import TourCard from "@/components/shared/TourCard";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -19,11 +19,6 @@ export async function generateMetadata({
     title: `${dest.name}, ${dest.country}`,
     description: dest.short_description,
   };
-}
-
-export async function generateStaticParams() {
-  const destinations = await getAllDestinations();
-  return destinations.map((d) => ({ slug: d.slug }));
 }
 
 export default async function DestinationPage({ params }: { params: { slug: string } }) {

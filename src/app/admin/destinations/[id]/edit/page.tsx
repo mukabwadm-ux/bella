@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import DestinationForm from "@/components/admin/DestinationForm";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Edit Destination" };
 
 export default async function EditDestinationPage({ params }: { params: { id: string } }) {
