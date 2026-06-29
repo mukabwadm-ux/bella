@@ -2,15 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 
-const tourLinks = [
-  { label: "3-Day Maasai Mara Safari", href: "/tours/3-day-maasai-mara-safari" },
-  { label: "7-Day Classic Kenya", href: "/tours/7-day-classic-kenya" },
-  { label: "5-Day Zanzibar Beach", href: "/tours/5-day-zanzibar-beach" },
-  { label: "Honeymoon Mara & Zanzibar", href: "/tours/honeymoon-mara-zanzibar" },
-  { label: "4-Day Mount Kenya Trek", href: "/tours/4-day-mount-kenya-trek" },
-  { label: "8-Day Serengeti & Ngorongoro", href: "/tours/8-day-serengeti-ngorongoro" },
-];
-
 const destinationLinks = [
   { label: "Maasai Mara", href: "/destinations/maasai-mara" },
   { label: "Amboseli", href: "/destinations/amboseli" },
@@ -89,13 +80,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Tours */}
+          {/* Company Links */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-savanna-gold mb-4">
-              Safari Packages
+              Company
             </h4>
             <ul className="space-y-2.5">
-              {tourLinks.map((link) => (
+              {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -157,23 +148,6 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-savanna-gold mb-3">
-                Company Links
-              </h4>
-              <ul className="space-y-2">
-                {companyLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/70 hover:text-savanna-gold transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </div>
