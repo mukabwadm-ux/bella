@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, Trash2, Save, ArrowLeft } from "lucide-react";
+import { Plus, Trash2, Save, ArrowLeft, Images, Loader2 } from "lucide-react";
 import ImageUpload from "./ImageUpload";
 import RichTextEditor from "./RichTextEditor";
 
@@ -103,6 +103,34 @@ export default function TourForm({
   }
   function removeArrayItem(field: "highlights" | "inclusions" | "exclusions" | "gallery", i: number) {
     setField(field, form[field].filter((_, idx) => idx !== i));
+  }
+
+  const galleryInputRef = useRef<HTMLInputElement>(null);
+  const [galleryUploading, setGalleryUploading] = useState(false);
+  const [galleryProgress, setGalleryProgress] = useState({ done: 0, total: 0 });
+
+  async function handleGalleryMultiUpload(files: FileList) {
+    if (!files.length) return;
+    setGalleryUploading(true);
+    setGalleryProgress({ done: 0, total: files.length });
+    const urls: string[] = [];
+    for (const file of Array.from(files)) {
+      try {
+        const fd = new FormData();
+        fd.append("file", file);
+        fd.append("folder", "gallery");
+        const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+        const data = await res.json();
+        if (res.ok && data.url) urls.push(data.url);
+      } catch {}
+      setGalleryProgress((p) => ({ ...p, done: p.done + 1 }));
+    }
+    if (urls.length) {
+      const existing = form.gallery.filter(Boolean);
+      setField("gallery", [...existing, ...urls]);
+    }
+    setGalleryUploading(false);
+    setGalleryProgress({ done: 0, total: 0 });
   }
 
   function setItineraryDay(i: number, key: keyof ItineraryDay, val: string | number) {
@@ -419,9 +447,42 @@ export default function TourForm({
 
       {/* Gallery */}
       <div className={SECTION}>
-        <p className={SECTION_TITLE}>Photo Gallery</p>
-        <p className="text-xs text-gray-500 -mt-2">Additional photos shown in the gallery on the tour page.</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <div>
+            <p className={SECTION_TITLE}>Photo Gallery</p>
+            <p className="text-xs text-gray-500 mt-0.5">Additional photos shown in the gallery on the tour page.</p>
+          </div>
+          <button
+            type="button"
+            disabled={galleryUploading}
+            onClick={() => galleryInputRef.current?.click()}
+            className="flex items-center gap-2 bg-[#0B3D2E] hover:bg-[#002800] disabled:opacity-60 text-white text-xs font-semibold px-3 py-2 rounded-xl transition-colors flex-shrink-0"
+          >
+            {galleryUploading ? (
+              <>
+                <Loader2 size={13} className="animate-spin" />
+                {galleryProgress.done}/{galleryProgress.total} uploading…
+              </>
+            ) : (
+              <>
+                <Images size={13} />
+                Add Multiple Photos
+              </>
+            )}
+          </button>
+          <input
+            ref={galleryInputRef}
+            type="file"
+            accept="image/*"
+            multiple
+            className="hidden"
+            onChange={(e) => {
+              if (e.target.files?.length) handleGalleryMultiUpload(e.target.files);
+              e.target.value = "";
+            }}
+          />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-3">
           {form.gallery.map((url, i) => (
             <div key={i} className="space-y-2">
               <ImageUpload
