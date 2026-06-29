@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   description:
     "Discover East Africa with Bella Safaris. Expert-guided safaris to Maasai Mara, Amboseli, Serengeti, Zanzibar and beyond. Based in Nairobi since 2015.",
   keywords: ["Kenya safari", "Maasai Mara", "Amboseli", "Zanzibar", "East Africa tours", "Nairobi travel"],
+  icons: {
+    icon: [
+      { url: "/images/Bella_Safaris-Favicon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/Bella_Safaris-Favicon.png", type: "image/png" },
+    ],
+    shortcut: "/images/Bella_Safaris-Favicon.png",
+  },
   openGraph: {
     siteName: "Bella Safaris",
     locale: "en_KE",
