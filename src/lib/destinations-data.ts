@@ -32,7 +32,7 @@ export const destinationsData: DestinationFull[] = [
       "Maasai cultural villages and warrior ceremonies",
       "Private conservancies for exclusive, off-road game drives",
     ],
-    tour_slugs: ["honeymoon-mara-zanzibar", "3-days-sarova-mara"],
+    tour_slugs: ["3-days-sarova-mara"],
   },
   {
     id: "2",
@@ -82,7 +82,7 @@ export const destinationsData: DestinationFull[] = [
       "Snorkelling at Mnemba Atoll — one of Africa's finest dive sites",
       "Dolphin watching at Kizimkazi",
     ],
-    tour_slugs: ["honeymoon-mara-zanzibar"],
+    tour_slugs: [],
   },
   {
     id: "4",
@@ -183,6 +183,31 @@ export const destinationsData: DestinationFull[] = [
       "UNESCO Kaya Kinondo Sacred Forest — cultural heritage site",
     ],
     tour_slugs: ["4-night-diani-beach"],
+  },
+  {
+    id: "8",
+    slug: "samburu",
+    name: "Samburu",
+    country: "Kenya",
+    region: "Northern Kenya",
+    short_description: "Kenya's wild north — the Samburu Special Five, Ewaso Nyiro River, and ancient warrior culture.",
+    long_description: "",
+    hero_image: "/images/tours/samburu/samburu-giraffes-elephants.jpg",
+    featured: true,
+    created_at: "",
+    best_time: "January – February · June – October",
+    climate: "Hot and dry · 25–35°C year-round · Short rains Oct–Nov · Long rains Mar–Apr",
+    about:
+      "Samburu National Reserve and the adjacent Shaba and Buffalo Springs reserves form one of Kenya's most dramatic and distinctive wilderness areas. Located in Kenya's arid north, this is a landscape of rocky hills, ancient doum palms, and the life-giving Ewaso Nyiro River — utterly unlike the green savannas of the south. Samburu is the home of the Samburu Special Five: five endemic species found nowhere else in Kenya — the Reticulated Giraffe, Grevy's Zebra, Gerenuk (the long-necked 'giraffe antelope'), Beisa Oryx, and Somali Ostrich. These unique animals, combined with lion, leopard, elephant, buffalo, and more than 500 bird species, make Samburu a world-class wildlife destination. The Samburu people — cousins of the Maasai and equally proud pastoralists — add a rich cultural dimension. Their colourful ceremonies, warrior traditions, and handcrafted beadwork are a window into one of East Africa's most remarkable cultures.",
+    highlights: [
+      "Samburu Special Five — endemic species unique to Kenya's north",
+      "Ewaso Nyiro River — crocodile, elephant, and extraordinary birdlife",
+      "Sarova Shaba Game Lodge — riverside luxury in Shaba National Reserve",
+      "Samburu Cultural Manyatta — dances, storytelling, and beadwork",
+      "Over 500 bird species recorded in the reserve",
+      "Dramatic landscape of volcanic rocks, doum palms, and semi-arid plains",
+    ],
+    tour_slugs: ["3-days-sarova-shaba"],
   },
 ];
 
