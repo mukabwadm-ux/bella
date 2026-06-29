@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { RefreshCw, CheckCircle, XCircle } from "lucide-react";
 
 export default function SyncButton() {
-  const router = useRouter();
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [msg, setMsg] = useState("");
 
@@ -22,8 +20,7 @@ export default function SyncButton() {
         (tours.deleted > 0 ? ` · removed ${tours.deleted} stale` : "")
       );
       setState("success");
-      router.refresh();
-      setTimeout(() => setState("idle"), 6000);
+      setTimeout(() => window.location.reload(), 1200);
     } catch (e: unknown) {
       setMsg(e instanceof Error ? e.message : "Unknown error");
       setState("error");
