@@ -20,7 +20,7 @@ export default function SyncButton() {
         (tours.deleted > 0 ? ` · removed ${tours.deleted} stale` : "")
       );
       setState("success");
-      setTimeout(() => window.location.reload(), 1200);
+      setTimeout(() => { window.location.href = `/admin/tours?t=${Date.now()}`; }, 1200);
     } catch (e: unknown) {
       setMsg(e instanceof Error ? e.message : "Unknown error");
       setState("error");
