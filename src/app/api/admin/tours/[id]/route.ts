@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient, supabaseAdmin } from "@/lib/supabase-server";
 import { getUserRole } from "@/lib/roles";
 
@@ -26,6 +27,11 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
   const { error } = await supabaseAdmin.from("tours").update(tourData).eq("id", params.id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  revalidatePath("/");
+  revalidatePath("/tours");
+  if (tourData.slug) revalidatePath(`/tours/${tourData.slug}`);
+
   return NextResponse.json({ success: true });
 }
 
@@ -36,7 +42,13 @@ export async function DELETE(_: NextRequest, { params }: { params: { id: string 
   const role = await getUserRole(user.id);
   if (role !== "admin") return NextResponse.json({ error: "Only admins can delete tour packages." }, { status: 403 });
 
+  const { data: tour } = await supabaseAdmin.from("tours").select("slug").eq("id", params.id).single();
   const { error } = await supabaseAdmin.from("tours").delete().eq("id", params.id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  revalidatePath("/");
+  revalidatePath("/tours");
+  if (tour?.slug) revalidatePath(`/tours/${tour.slug}`);
+
   return NextResponse.json({ success: true });
 }

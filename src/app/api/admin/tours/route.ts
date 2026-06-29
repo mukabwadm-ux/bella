@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient, supabaseAdmin } from "@/lib/supabase-server";
 
 async function verifyAuth() {
@@ -30,5 +31,10 @@ export async function POST(req: NextRequest) {
     .single();
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  revalidatePath("/");
+  revalidatePath("/tours");
+  if (tourData.slug) revalidatePath(`/tours/${tourData.slug}`);
+
   return NextResponse.json({ success: true, id: data.id }, { status: 201 });
 }
