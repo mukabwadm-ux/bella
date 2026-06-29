@@ -15,7 +15,7 @@ import {
   getFeaturedBlogPosts,
 } from "@/lib/supabase";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export default async function HomePage() {
   const [destinations, tours, testimonials, blogPosts] = await Promise.all([

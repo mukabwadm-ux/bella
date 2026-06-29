@@ -6,14 +6,14 @@ import {
   Clock, Users, TrendingUp, CheckCircle, XCircle,
   ArrowLeft, Phone, Star, MapPin,
 } from "lucide-react";
-import { getTourBySlug, getAllTours } from "@/lib/supabase";
+import { getTourBySlug } from "@/lib/supabase";
 import { formatKES } from "@/lib/utils";
 import ItineraryAccordion from "@/components/shared/ItineraryAccordion";
 import TourGallery from "@/components/shared/TourGallery";
 import EnquiryForm from "@/components/shared/EnquiryForm";
 import TourFAQ from "@/components/shared/TourFAQ";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -26,11 +26,6 @@ export async function generateMetadata({
     title: tour.title,
     description: tour.summary,
   };
-}
-
-export async function generateStaticParams() {
-  const tours = await getAllTours();
-  return tours.map((t) => ({ slug: t.slug }));
 }
 
 const difficultyConfig = {

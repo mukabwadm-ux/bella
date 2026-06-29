@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TourCard from "@/components/shared/TourCard";
 import { getAllTours } from "@/lib/supabase";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Safari Packages",
