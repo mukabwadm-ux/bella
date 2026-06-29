@@ -4,7 +4,7 @@ import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
 import {
   LayoutDashboard, Package, BookOpen, LogOut, Menu, X, MapPin,
-  ChevronDown, MessageSquare, Users, Zap,
+  ChevronDown, MessageSquare, Users, Zap, Image,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import type { UserRole } from "@/lib/roles";
@@ -55,6 +55,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     if (pathname.startsWith("/admin/contact")) return "Contact Form";
     if (pathname.startsWith("/admin/users")) return "Users";
     if (pathname.startsWith("/admin/integrations")) return "Integrations";
+    if (pathname.startsWith("/admin/media")) return "Media Library";
     return "Admin";
   }
 
@@ -150,6 +151,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           >
             <BookOpen size={17} />
             Blog Posts
+          </Link>
+
+          {/* Media Library */}
+          <Link
+            href="/admin/media"
+            onClick={() => setSidebarOpen(false)}
+            className={`${linkBase} ${isActive("/admin/media") ? activeLink : inactiveLink}`}
+          >
+            <Image size={17} />
+            Media Library
           </Link>
 
           {/* Destinations — admin only */}

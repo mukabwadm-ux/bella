@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
-import { Upload, ImageIcon, Loader2, X } from "lucide-react";
+import { Upload, ImageIcon, Loader2, X, FolderOpen } from "lucide-react";
+import MediaPickerModal from "./MediaPickerModal";
 
 interface Props {
   value: string;
@@ -20,6 +21,7 @@ export default function ImageUpload({
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
+  const [pickerOpen, setPickerOpen] = useState(false);
 
   async function handleFile(file: File) {
     if (!file.type.startsWith("image/")) {
@@ -116,6 +118,22 @@ export default function ImageUpload({
       </div>
 
       {error && <p className="text-xs text-red-500">{error}</p>}
+
+      {/* Browse library button */}
+      <button
+        type="button"
+        onClick={() => setPickerOpen(true)}
+        className="flex items-center gap-2 text-xs text-[#0B3D2E] font-medium hover:underline"
+      >
+        <FolderOpen size={13} />
+        Browse Media Library
+      </button>
+
+      <MediaPickerModal
+        open={pickerOpen}
+        onClose={() => setPickerOpen(false)}
+        onSelect={(url) => { onChange(url); setPickerOpen(false); }}
+      />
 
       <input
         ref={inputRef}

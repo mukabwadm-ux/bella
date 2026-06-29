@@ -11,8 +11,10 @@ export async function POST(request: NextRequest) {
   const folder = (formData.get("folder") as string) || "uploads";
 
   if (!file) return NextResponse.json({ error: "No file provided" }, { status: 400 });
-  if (!file.type.startsWith("image/")) return NextResponse.json({ error: "File must be an image" }, { status: 400 });
-  if (file.size > 10 * 1024 * 1024) return NextResponse.json({ error: "Image must be under 10 MB" }, { status: 400 });
+  const isImage = file.type.startsWith("image/");
+  const isPdf = file.type === "application/pdf";
+  if (!isImage && !isPdf) return NextResponse.json({ error: "File must be an image or PDF" }, { status: 400 });
+  if (file.size > 20 * 1024 * 1024) return NextResponse.json({ error: "File must be under 20 MB" }, { status: 400 });
 
   const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
   const filename = `${folder}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;

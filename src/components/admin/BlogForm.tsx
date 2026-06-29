@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Save, ArrowLeft } from "lucide-react";
 import SeoAnalyzer from "./SeoAnalyzer";
 import RichTextEditor from "./RichTextEditor";
+import ImageUpload from "./ImageUpload";
 
 export interface BlogFormData {
   id?: string;
@@ -186,15 +187,12 @@ export default function BlogForm({ initial, isEdit }: { initial?: Partial<BlogFo
           {/* Featured image */}
           <div className={SECTION}>
             <p className={SECTION_TITLE}>Featured Image</p>
-            <div>
-              <label className={LABEL}>Image URL *</label>
-              <input className={INPUT} value={form.cover_image} onChange={(e) => set("cover_image", e.target.value)} placeholder="/images/your-photo.jpg" />
-            </div>
-            {form.cover_image && (
-              <div className="rounded-xl overflow-hidden aspect-[16/9] bg-gray-100">
-                <img src={form.cover_image} alt="cover" className="w-full h-full object-cover" />
-              </div>
-            )}
+            <ImageUpload
+              value={form.cover_image}
+              onChange={(url) => set("cover_image", url)}
+              folder="blog"
+              label="Cover Image *"
+            />
             <div>
               <label className={LABEL}>Alt Text (accessibility + SEO)</label>
               <input className={INPUT} value={form.cover_image_alt} onChange={(e) => set("cover_image_alt", e.target.value)} placeholder="Describe the image for screen readers" />
