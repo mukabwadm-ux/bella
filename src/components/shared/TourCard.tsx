@@ -62,10 +62,16 @@ export default function TourCard({ tour }: TourCardProps) {
         {/* Price + CTA */}
         <div className="flex items-center justify-between pt-4 border-t border-border">
           <div>
-            <p className="text-xs text-muted-text">From</p>
-            <p className="text-lg font-bold text-safari-green">
-              {formatKES(tour.price_from_kes)}
-            </p>
+            {tour.price_from_kes > 0 ? (
+              <>
+                <p className="text-xs text-muted-text">From</p>
+                <p className="text-lg font-bold text-safari-green">
+                  {formatKES(tour.price_from_kes)}
+                </p>
+              </>
+            ) : (
+              <p className="text-lg font-bold text-safari-green">Get Quote</p>
+            )}
           </div>
           <span className="bg-savanna-gold hover:bg-sunlit-gold text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors">
             View Details

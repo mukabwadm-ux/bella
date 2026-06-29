@@ -130,11 +130,19 @@ export default async function TourPage({ params }: { params: { slug: string } })
       <div className="sticky top-16 md:top-20 z-40 bg-white border-b border-border shadow-sm">
         <div className="container-xl flex items-center justify-between py-3 gap-4">
           <div>
-            <span className="text-xs text-muted-text">From</span>
-            <span className="text-xl font-bold text-safari-green ml-2">
-              {formatKES(tour.price_from_kes)}
-            </span>
-            <span className="text-xs text-muted-text ml-1">per person</span>
+            {tour.price_from_kes > 0 ? (
+              <>
+                <span className="text-xs text-muted-text">From</span>
+                <span className="text-xl font-bold text-safari-green ml-2">
+                  {formatKES(tour.price_from_kes)}
+                </span>
+                <span className="text-xs text-muted-text ml-1">per person</span>
+              </>
+            ) : (
+              <span className="text-xl font-bold text-safari-green">
+                Price on Request
+              </span>
+            )}
           </div>
           <div className="flex gap-2 sm:gap-3">
             {/* Full WhatsApp button — desktop */}
@@ -283,7 +291,7 @@ export default async function TourPage({ params }: { params: { slug: string } })
                       { label: "Group Size", value: tour.group_size },
                       { label: "Difficulty", value: diff.label },
                       { label: "Category", value: tour.category },
-                      { label: "Price From", value: formatKES(tour.price_from_kes) + " / person" },
+                      { label: "Price From", value: tour.price_from_kes > 0 ? formatKES(tour.price_from_kes) + " / person" : "Price on Request" },
                     ].map(({ label, value }) => (
                       <div key={label} className="flex justify-between items-center py-2 border-b border-border last:border-0">
                         <dt className="text-muted-text">{label}</dt>
@@ -371,7 +379,7 @@ export default async function TourPage({ params }: { params: { slug: string } })
                       {t.title}
                     </h4>
                     <p className="text-xs text-muted-text">
-                      {t.duration} days · From {formatKES(t.price_from_kes)}
+                      {t.duration} days · {t.price_from_kes > 0 ? `From ${formatKES(t.price_from_kes)}` : "Price on Request"}
                     </p>
                   </div>
                 </Link>

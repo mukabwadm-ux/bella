@@ -697,6 +697,127 @@ export const toursData: Tour[] = [
     best_seller: false,
     created_at: "",
   },
+  {
+    id: "7",
+    slug: "4-night-diani-beach",
+    title: "4-Night Luxury Diani Beach Escape",
+    summary:
+      "White sand, turquoise waters, and pure luxury at Africa's best-rated beach. Five days of wellness, water sports, cultural discovery, and deep-sea adventure at The Baobab Beach Resort & Spa, Diani Beach.",
+    hero_image: "/images/tours/diani/diani-aerial.jpg",
+    duration: 5,
+    group_size: "2–12",
+    price_from_kes: 0,
+    difficulty: "easy",
+    category: "Beach & Island",
+    destinations: ["diani-beach"],
+    highlights: [
+      "Diani Beach — voted Africa's best beach destination",
+      "Afya Bora Wellness Club & Spa treatments with Indian Ocean views",
+      "UNESCO Kaya Kinondo Sacred Forest guided cultural tour",
+      "Colobus monkey conservation educational experience",
+      "Deep-sea big game fishing for marlin and tuna",
+      "PADI 5-star scuba diving at Ocean Tribe, Diani",
+      "Kitesurfing, snorkeling, and glass-bottom boat reef excursion",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Nairobi to Diani Beach",
+        description:
+          "Catch a Safarilink or Jambojet flight from Wilson Airport to Ukunda Airstrip — a stunning 1-hour flight with aerial views of Kenya's coastline. Transfer to The Baobab Beach Resort & Spa, a luxury beachfront estate within 80 acres of tropical gardens. Check into your ocean-view room, take a stroll along Diani's pristine white sands, then unwind with a cocktail as the sun sets over the Indian Ocean. Dinner at Maridadi Restaurant featuring a fusion of local and international cuisines.",
+        meals: "Dinner",
+        accommodation: "The Baobab Beach Resort & Spa, Diani Beach",
+      },
+      {
+        day: 2,
+        title: "Wellness and Water Sports",
+        description:
+          "Begin with a rejuvenating session at the Afya Bora Wellness Club — massages, yoga, and detox treatments with views of the coastal forest and Indian Ocean. Spend the afternoon on the beach: kitesurfing, snorkeling among vibrant coral reefs, jet skiing, or a glass-bottom boat tour exploring the reef just offshore. Dinner at Tapa Tapa Restaurant, featuring fresh Swahili seafood and international favourites.",
+        meals: "Breakfast, Dinner",
+        accommodation: "The Baobab Beach Resort & Spa, Diani Beach",
+      },
+      {
+        day: 3,
+        title: "Cultural and Nature Excursions",
+        description:
+          "A guided nature walk through Baobab Nature Park, home to over 100 bird species and the rare Colobus monkey. Visit Colobus Conservation to learn about efforts protecting these endangered primates. In the afternoon, explore the Kaya Kinondo Sacred Forest — a UNESCO World Heritage Site — along ancient trails with deep cultural significance to the Mijikenda people. Return to the resort for a beachfront dinner followed by traditional Swahili music and dance at the Porini Amphitheatre.",
+        meals: "Breakfast, Dinner",
+        accommodation: "The Baobab Beach Resort & Spa, Diani Beach",
+      },
+      {
+        day: 4,
+        title: "Adventure on the Water",
+        description:
+          "An early hearty breakfast before heading out for a deep-sea big game fishing excursion beyond the coral reef — a chance to catch marlin, sailfish, and tuna in the open Indian Ocean. Back on shore, choose between relaxing by the pool or joining a scuba diving session at Ocean Tribe, Diani's only PADI 5-star IDC training centre — ideal for both beginners and experienced divers. Wind down with sundowners at the Karibu Bar, followed by a romantic beach dinner under the stars.",
+        meals: "Breakfast, Dinner",
+        accommodation: "The Baobab Beach Resort & Spa, Diani Beach",
+      },
+      {
+        day: 5,
+        title: "Final Exploration and Departure",
+        description:
+          "A leisurely breakfast and one last walk along Diani's legendary white sands. If time permits, visit the Kongo River Estuary near Tiwi Beach for a scenic exploration of mangroves and sandbanks. Transfer to Ukunda Airstrip for your return flight to Nairobi, completing your unforgettable luxury coastal escape.",
+        meals: "Breakfast",
+        accommodation: "N/A — Departure day",
+      },
+    ],
+    inclusions: [
+      "Return domestic flights Nairobi (Wilson Airport) ↔ Ukunda Airstrip",
+      "4 nights accommodation at The Baobab Beach Resort & Spa",
+      "All meals as specified per itinerary",
+      "Airport transfers in Diani",
+      "Guided nature walk at Baobab Nature Park",
+      "Colobus Conservation visit",
+      "Guided Kaya Kinondo Sacred Forest tour",
+      "Glass-bottom boat reef excursion",
+      "Big game fishing excursion",
+      "Professional, English-speaking guide throughout",
+    ],
+    exclusions: [
+      "International flights to Nairobi",
+      "Kenya visa fees",
+      "Travel insurance (strongly recommended)",
+      "Scuba diving course fees (contact us for pricing)",
+      "Water sports equipment hire — kitesurfing, jet skiing (optional)",
+      "Alcoholic beverages beyond welcome cocktail",
+      "Additional spa treatments beyond included session",
+      "Tips and gratuities",
+      "Items of a personal nature",
+    ],
+    gallery: [
+      "/images/tours/diani/diani-aerial.jpg",
+      "/images/tours/diani/diani-resort-pool.jpg",
+      "/images/tours/diani/diani-resort-restaurant.jpg",
+      "/images/tours/diani/diani-beachfront-bar.jpg",
+      "/images/tours/diani/diani-kaya-kinondo-sign.jpg",
+      "/images/tours/diani/diani-kaya-kinondo-forest.jpg",
+    ],
+    faqs: [
+      {
+        question: "What is the best time to visit Diani Beach?",
+        answer:
+          "Diani Beach is beautiful year-round with warm temperatures between 25°C and 30°C. The best time to visit is June to October when the weather is drier and the sea is calmer — ideal for water sports, diving, and long beach days.",
+      },
+      {
+        question: "Are the domestic flights included?",
+        answer:
+          "Yes, return flights from Wilson Airport, Nairobi to Ukunda Airstrip are included. Safarilink and Jambojet operate daily scheduled services. The flight takes approximately 1 hour and provides stunning aerial views of the Kenyan coastline.",
+      },
+      {
+        question: "Is this package suitable for families?",
+        answer:
+          "Absolutely. Diani Beach is a wonderful family destination. The resort has family rooms and offers a wide range of activities suitable for all ages. The cultural excursions to Kaya Kinondo and Colobus Conservation are particularly enriching for children.",
+      },
+      {
+        question: "What water sports are available?",
+        answer:
+          "Diani offers an exceptional range: kitesurfing, snorkeling, glass-bottom boat tours, jet skiing, scuba diving at Ocean Tribe (PADI 5-star), and deep-sea big game fishing. Most activities can be arranged through the resort or via our team.",
+      },
+    ],
+    featured: true,
+    best_seller: false,
+    created_at: "",
+  },
 ];
 
 export function getTourBySlug(slug: string): Tour | undefined {
