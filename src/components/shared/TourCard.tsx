@@ -42,9 +42,10 @@ export default function TourCard({ tour }: TourCardProps) {
         <h3 className="font-semibold text-safari-green text-base leading-snug mb-2 group-hover:text-savanna-gold transition-colors">
           {tour.title}
         </h3>
-        <p className="text-sm text-muted-text line-clamp-2 mb-4 flex-1">
+        <p className="text-sm text-muted-text line-clamp-2 mb-4">
           {tour.summary}
         </p>
+        <div className="flex-1" />
 
         {/* Meta row */}
         <div className="flex items-center gap-4 text-xs text-muted-text mb-4">
