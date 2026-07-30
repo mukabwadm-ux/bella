@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
+import SafariBookingsWidget from "./SafariBookingsWidget";
 
 export default function HeroSection() {
   return (
@@ -68,11 +69,7 @@ export default function HeroSection() {
       </div>
 
       {/* Safari Bookings reviews badge */}
-      <div className="absolute bottom-6 left-6 z-10">
-        <div style={{ display: "inline-block", float: "left", padding: "0 10px 5px 0" }}>
-          <span className="7a97a4193d140">&nbsp;</span>
-        </div>
-      </div>
+      <SafariBookingsWidget />
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 animate-bounce">

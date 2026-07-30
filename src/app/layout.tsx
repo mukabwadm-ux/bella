@@ -104,11 +104,6 @@ export default async function RootLayout({
             {customBodyCode}
           </Script>
         )}
-
-        {/* Safari Bookings reviews widget */}
-        <Script id="safari-bookings-widget" strategy="lazyOnload">
-          {`(function(){var sb=document.createElement('script');sb.type='text/javascript';sb.async=true;sb.src='https://s3.amazonaws.com/z_437er23a/82a4193c0.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(sb,s);})();`}
-        </Script>
       </body>
     </html>
   );
