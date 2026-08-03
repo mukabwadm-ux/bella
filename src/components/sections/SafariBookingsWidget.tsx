@@ -11,7 +11,7 @@ export default function SafariBookingsWidget() {
           src="https://s3.amazonaws.com/z_437er23a/images/p4193-2.png"
           alt="Reviews about Bella Safaris"
           title="Reviews about Bella Safaris"
-          className="h-16 md:h-[90px] w-auto"
+          className="h-[83px] md:h-[113px] w-auto"
         />
       </a>
     </div>
