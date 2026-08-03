@@ -32,8 +32,8 @@ export default function DifferenceSection() {
           </div>
           <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/images/Enashipai-12.jpg"
-              alt="Bella Safaris lodge"
+              src="/images/about-bellasafaris.jpg"
+              alt="Bella Safaris safari vehicles"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
