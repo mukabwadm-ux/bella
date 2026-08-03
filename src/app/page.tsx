@@ -8,6 +8,7 @@ import CTABand from "@/components/shared/CTABand";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import BlogSection from "@/components/sections/BlogSection";
 import TripAdvisorSection from "@/components/sections/TripAdvisorSection";
+import SafariBookingsSection from "@/components/sections/SafariBookingsSection";
 import {
   getFeaturedDestinations,
   getFeaturedTours,
@@ -37,6 +38,7 @@ export default async function HomePage() {
       <TestimonialsSection testimonials={testimonials} />
       <TripAdvisorSection />
       <BlogSection posts={blogPosts} />
+      <SafariBookingsSection />
     </>
   );
 }
